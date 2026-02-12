@@ -1,0 +1,30 @@
+# PoliRAG — Docker Compose
+# Usage: docker-compose -f docker/docker-compose.yml up
+#
+# Mounts .env from the repo root for configuration.
+# Persistent volumes keep data/indexes across restarts.
+
+version: "3.9"
+
+services:
+  polirag-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: polirag-api
+    ports:
+      - "${API_PORT:-8001}:8001"
+    env_file:
+      - ../.env
+    volumes:
+      # Persist ingested data and indexes across container restarts
+      - ../data:/app/data
+      - ../indexes:/app/indexes
+      - ../logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8001/health" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

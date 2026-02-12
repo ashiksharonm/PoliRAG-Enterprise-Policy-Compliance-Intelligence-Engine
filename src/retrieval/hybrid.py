@@ -21,21 +21,30 @@ from src.vectorstore.faiss_store import FAISSVectorStore
 class HybridRetriever:
     """Hybrid retrieval combining BM25 and semantic search."""
 
-    def __init__(self, index_name: str = "main"):
+    def __init__(
+        self,
+        index_name: str = "main",
+        vector_store: Optional[FAISSVectorStore] = None,
+        bm25_store: Optional[BM25Store] = None,
+        embedding_service: Optional[EmbeddingService] = None,
+    ):
         """Initialize hybrid retriever.
 
         Args:
             index_name: Index name
+            vector_store: Pre-created FAISS store (avoids duplicate init)
+            bm25_store: Pre-created BM25 store (avoids duplicate init)
+            embedding_service: Pre-created embedding service
         """
         self.settings = get_settings()
         self.index_name = index_name
         
-        # Initialize stores
-        self.vector_store = FAISSVectorStore(index_name=index_name)
-        self.bm25_store = BM25Store(index_name=index_name)
+        # Use injected stores or create new ones
+        self.vector_store = vector_store or FAISSVectorStore(index_name=index_name)
+        self.bm25_store = bm25_store or BM25Store(index_name=index_name)
         
-        # Initialize embedding service
-        self.embedding_service = EmbeddingService()
+        # Use injected embedding service or create new one
+        self.embedding_service = embedding_service or EmbeddingService()
         
         # Weights for hybrid search
         self.bm25_weight = self.settings.retrieval_bm25_weight

@@ -1,0 +1,58 @@
+{
+    "name": "compliance_sample",
+    "description": "Sample Q&A pairs for compliance policy testing",
+    "version": "1.0",
+    "qa_pairs": [
+        {
+            "id": "qa-001",
+            "question": "What is the data retention policy for customer records?",
+            "expected_answer": null,
+            "relevant_chunk_ids": [],
+            "relevant_document_ids": [],
+            "category": "data_retention",
+            "difficulty": "easy",
+            "metadata": {}
+        },
+        {
+            "id": "qa-002",
+            "question": "What are the requirements for password complexity?",
+            "expected_answer": null,
+            "relevant_chunk_ids": [],
+            "relevant_document_ids": [],
+            "category": "security",
+            "difficulty": "easy",
+            "metadata": {}
+        },
+        {
+            "id": "qa-003",
+            "question": "What is the process for handling data breach incidents?",
+            "expected_answer": null,
+            "relevant_chunk_ids": [],
+            "relevant_document_ids": [],
+            "category": "incident_response",
+            "difficulty": "medium",
+            "metadata": {}
+        },
+        {
+            "id": "qa-004",
+            "question": "What are the GDPR compliance requirements for international data transfers?",
+            "expected_answer": null,
+            "relevant_chunk_ids": [],
+            "relevant_document_ids": [],
+            "category": "gdpr",
+            "difficulty": "hard",
+            "metadata": {}
+        },
+        {
+            "id": "qa-005",
+            "question": "What is the escalation procedure for compliance violations?",
+            "expected_answer": null,
+            "relevant_chunk_ids": [],
+            "relevant_document_ids": [],
+            "category": "violations",
+            "difficulty": "medium",
+            "metadata": {}
+        }
+    ],
+    "metadata": {}
+}

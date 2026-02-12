@@ -66,7 +66,11 @@ async def lifespan(app: FastAPI):
         components["embedding_service"] = EmbeddingService()
         components["vector_store"] = FAISSVectorStore()
         components["bm25_store"] = BM25Store()
-        components["retriever"] = HybridRetriever()
+        components["retriever"] = HybridRetriever(
+            vector_store=components["vector_store"],
+            bm25_store=components["bm25_store"],
+            embedding_service=components["embedding_service"],
+        )
         components["reranker"] = Reranker()
         components["generator"] = ResponseGenerator()
         components["pii_detector"] = PIIDetector()
