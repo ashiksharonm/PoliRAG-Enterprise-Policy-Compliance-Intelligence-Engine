@@ -1,91 +1,138 @@
-# PoliRAG - Enterprise Policy & Compliance Intelligence Engine
+# 🛡️ PoliRAG — Enterprise Policy & Compliance Intelligence Engine
 
-> **A production-grade RAG file system for enterprise compliance, policy reasoning, and audit-safe AI.**
+> **A production-grade RAG system for enterprise compliance, policy reasoning, and audit-safe AI.**
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Streamlit](https://img.shields.io/badge/🚀_Live_Demo-Streamlit-FF4B4B.svg)](https://polirag-enterprise-policy-compliance.streamlit.app/)
+
+<p align="center">
+  <a href="https://polirag-enterprise-policy-compliance.streamlit.app/">
+    <img src="https://img.shields.io/badge/🔗_Try_the_Live_Demo-6C63FF?style=for-the-badge&logoColor=white" alt="Live Demo" />
+  </a>
+</p>
+
+---
 
 ## 🎯 Overview
 
-PoliRAG is an **enterprise-grade Retrieval-Augmented Generation (RAG) system** designed for compliance, legal, and audit teams. It treats documents as first-class data assets with versioning, access control, evaluation, and full observability.
+PoliRAG is an **enterprise-grade Retrieval-Augmented Generation (RAG) system** designed for compliance, legal, and audit teams. It treats documents as first-class data assets with versioning, access control, evaluation, and full observability — built to ensure **no hallucinated answers** leave the system.
 
-### Key Features
+### ✨ Key Features
 
-- ✅ **No Hallucinated Answers** - Citation-required responses with confidence thresholds
-- ✅ **Full Traceability** - Every answer linked to source documents
-- ✅ **Strict Access Control** - Role-Based Access Control (RBAC) with multi-tenancy
-- ✅ **Evaluation-Driven** - Automated Recall@K, MRR, and hallucination rate tracking
-- ✅ **Production-Ready** - Comprehensive logging, metrics, and observability
-- ✅ **Document Versioning** - Content-hash based deduplication and version tracking
-- ✅ **Hybrid Search** - BM25 + Semantic search with cross-encoder reranking
-- ✅ **PII Protection** - Automatic PII detection and redaction
+| Feature | Description |
+|---------|-------------|
+| 🎯 **No Hallucinations** | Citation-required responses with confidence thresholds and hallucination detection |
+| 🔍 **Hybrid Search** | BM25 (keyword) + FAISS (semantic) with cross-encoder reranking |
+| 🔒 **RBAC & Multi-Tenancy** | Hierarchical role-based access: Admin → Legal → Audit → Compliance → Read-Only |
+| 🕵️ **PII Protection** | Regex + spaCy NER for emails, SSNs, phone numbers, credit cards, names |
+| 📊 **Evaluation-Driven** | Automated Recall@K, MRR, Precision@K, NDCG, and hallucination rate tracking |
+| 📄 **Document Versioning** | Content-hash deduplication, version tracking, and ingestion manifests |
+| ⚡ **Production-Ready** | Prometheus metrics, structured logging, rate limiting, Docker support |
+| 🧪 **Fully Tested** | 42-test pytest suite covering ingestion, chunking, guardrails, retrieval, and evaluation |
+
+---
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│  API Layer (FastAPI)                                    │
-│  ├── /ingest   ├── /query   ├── /health   ├── /metrics │
-└──────────────────────┬──────────────────────────────────┘
-                       │
-┌──────────────────────┴──────────────────────────────────┐
-│  Guardrails Layer                                       │
-│  ├── RBAC   ├── PII Redaction   ├── Rate Limiting      │
-└──────────────────────┬──────────────────────────────────┘
-                       │
-┌──────────────────────┴──────────────────────────────────┐
-│  RAG Pipeline                                           │
-│  ├── Ingestion → Chunking → Embedding → Vector Store   │
-│  └── Retrieval (Hybrid) → Rerank → Generation          │
-└──────────────────────┬──────────────────────────────────┘
-                       │
-┌──────────────────────┴──────────────────────────────────┐
-│  Observability & Evaluation                             │
-│  ├── Recall@K   ├── MRR   ├── Hallucination Rate       │
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                        FastAPI Application                         │
+│   ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐     │
+│   │  /ingest   │  │  /query   │  │  /health  │  │  /metrics │     │
+│   └─────┬──────┘  └─────┬─────┘  └───────────┘  └───────────┘     │
+│         │               │                                          │
+│   ┌─────▼──────┐  ┌────▼──────────────────────────┐               │
+│   │ Ingestion  │  │       Query Pipeline           │               │
+│   │  Pipeline  │  │                                │               │
+│   │  ┌───────┐ │  │  ┌────────┐    ┌───────────┐  │               │
+│   │  │Loaders│ │  │  │Guard-  │    │  Hybrid   │  │               │
+│   │  │PDF/DOC│ │  │  │rails   │───▶│ Retriever │  │               │
+│   │  │TXT/MD │ │  │  │PII     │    │BM25+FAISS │  │               │
+│   │  │JSON   │ │  │  │RBAC    │    └─────┬─────┘  │               │
+│   │  └───┬───┘ │  │  │Rate    │          │        │               │
+│   │      │     │  │  └────────┘    ┌─────▼─────┐  │               │
+│   │  ┌───▼───┐ │  │               │ Reranker  │  │               │
+│   │  │DocMgr │ │  │               │Cross-Enc. │  │               │
+│   │  │Dedup  │ │  │               └─────┬─────┘  │               │
+│   │  └───┬───┘ │  │                     │        │               │
+│   │      │     │  │               ┌─────▼─────┐  │               │
+│   │  ┌───▼───┐ │  │               │Generator  │  │               │
+│   │  │Chunker│ │  │               │Citations  │  │               │
+│   │  │Table  │ │  │               │Halluc.Det │  │               │
+│   │  └───┬───┘ │  │               └───────────┘  │               │
+│   │      │     │  └──────────────────────────────┘               │
+│   │  ┌───▼───┐ │                                                  │
+│   │  │Embed  │ │  ┌──────────────────────────────┐               │
+│   │  │Cached │ │  │      Observability           │               │
+│   │  └───┬───┘ │  │  Loguru + Prometheus         │               │
+│   │      │     │  └──────────────────────────────┘               │
+│   │  ┌───▼───┐ │                                                  │
+│   │  │FAISS  │ │  ┌──────────────────────────────┐               │
+│   │  │BM25   │ │  │      Evaluation              │               │
+│   │  └───────┘ │  │  Recall · MRR · NDCG         │               │
+│   └────────────┘  └──────────────────────────────┘               │
+└─────────────────────────────────────────────────────────────────────┘
 ```
+
+### Data Flow
+
+| Stage | Input | Output | Technology |
+|-------|-------|--------|------------|
+| **Ingestion** | Raw files (PDF, DOCX, TXT…) | Document records + metadata | PyPDF2, python-docx |
+| **Chunking** | Full document text | Semantically meaningful chunks | Recursive + table-aware splitting |
+| **Embedding** | Text chunks | 1536-dim vectors | OpenAI `text-embedding-3-large` |
+| **Indexing** | Vectors + text | FAISS index + BM25 index | faiss-cpu, rank-bm25 |
+| **Retrieval** | User query | Ranked, filtered chunks | Hybrid search + cross-encoder reranking |
+| **Generation** | Top chunks + query | Cited answer + confidence | OpenAI GPT-4 |
+
+---
 
 ## 📁 Project Structure
 
 ```
-rag-compliance-system/
-├── README.md                   # This file
-├── pyproject.toml             # Poetry dependencies
-├── requirements.txt           # Pip dependencies
-├── .env.example              # Environment variables template
-├── docker/                   # Docker configuration
-│   ├── Dockerfile
-│   └── docker-compose.yml
-├── data/                     # Data storage
-│   ├── raw/                 # Original uploaded documents
-│   ├── staged/              # Normalized + chunked text
-│   └── manifests/           # Ingestion logs and hashes
-├── indexes/                 # Vector indexes
-│   ├── faiss/              # FAISS vector indexes
-│   └── metadata/           # Document + chunk metadata
-├── src/                    # Source code
-│   ├── config.py          # Configuration management
-│   ├── models.py          # Shared data models
-│   ├── app/               # FastAPI routes
-│   ├── ingestion/         # Document loaders & versioning
-│   ├── chunking/          # Chunking strategies
-│   ├── embeddings/        # Embedding generation & caching
-│   ├── vectorstore/       # FAISS adapter
-│   ├── retrieval/         # Hybrid search + reranking
-│   ├── generation/        # LLM prompt templates
-│   ├── guardrails/        # RBAC, PII, safety checks
-│   ├── eval/              # Evaluation framework
-│   └── observability/     # Logging & metrics
-├── tests/                 # Test suite
-│   ├── test_ingestion.py
-│   ├── test_retrieval.py
-│   └── test_eval.py
-└── scripts/               # CLI tools
-    ├── ingest.py         # Document ingestion CLI
-    ├── build_index.py    # Index building CLI
-    └── serve.py          # API server CLI
+PoliRAG/
+├── src/
+│   ├── app/               # FastAPI endpoints + API models
+│   ├── ingestion/         # Document loaders, manager, pipeline
+│   ├── chunking/          # Recursive + table-aware chunking
+│   ├── embeddings/        # Async batch embedding + SQLite cache
+│   ├── vectorstore/       # FAISS (semantic) + BM25 (keyword)
+│   ├── retrieval/         # Hybrid retriever + cross-encoder reranker
+│   ├── generation/        # LLM prompt templates + citations
+│   ├── guardrails/        # PII detection, RBAC, rate limiting
+│   ├── eval/              # Metrics, golden dataset, eval runner
+│   ├── observability/     # Loguru logging + Prometheus metrics
+│   ├── config.py          # Pydantic settings (env-driven)
+│   └── models.py          # Core data models (Document, Chunk, etc.)
+├── tests/                 # 42 tests across 6 modules
+│   ├── conftest.py        # Shared fixtures (mocked settings)
+│   ├── test_ingestion.py  # Loader, dedup, pipeline tests
+│   ├── test_chunking.py   # Text + table chunking tests
+│   ├── test_guardrails.py # PII, RBAC, rate limiting tests
+│   ├── test_retrieval.py  # BM25 + FAISS store tests
+│   └── test_eval.py       # Metrics + golden dataset tests
+├── scripts/               # CLI tools
+│   ├── ingest.py          # Document ingestion CLI
+│   ├── build_index.py     # Index building CLI
+│   ├── serve.py           # API server CLI
+│   └── evaluate.py        # Evaluation runner with thresholds
+├── docker/                # Container infrastructure
+│   ├── Dockerfile         # Multi-stage production build
+│   └── docker-compose.yml # Orchestration with volumes
+├── data/                  # Data storage
+│   ├── raw/               # Original uploaded documents
+│   ├── staged/            # Normalized + chunked text
+│   ├── eval/              # Golden Q&A dataset
+│   └── manifests/         # Ingestion logs and hashes
+├── .streamlit/            # Streamlit theme configuration
+├── streamlit_app.py       # Interactive demo app
+├── requirements.txt       # Python dependencies
+└── .env.example           # Environment variables template
 ```
+
+---
 
 ## 🚀 Quick Start
 
@@ -96,25 +143,19 @@ rag-compliance-system/
 
 ### Installation
 
-1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd rag-compliance-system
-```
+# Clone the repository
+git clone https://github.com/ashiksharonm/PoliRAG-Enterprise-Policy-Compliance-Intelligence-Engine.git
+cd PoliRAG-Enterprise-Policy-Compliance-Intelligence-Engine
 
-2. **Install dependencies**
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-3. **Configure environment**
-```bash
+# Configure environment
 cp .env.example .env
-# Edit .env with your OpenAI API key and configuration
-```
+# Edit .env with your OpenAI API key
 
-4. **Download spaCy model for PII detection**
-```bash
+# Download spaCy model for PII detection
 python -m spacy download en_core_web_sm
 ```
 
@@ -136,6 +177,7 @@ python scripts/build_index.py
 
 ```bash
 python scripts/serve.py
+# API docs available at http://localhost:8001/docs
 ```
 
 #### 4. Query the System
@@ -150,58 +192,106 @@ curl -X POST http://localhost:8001/api/query \
   }'
 ```
 
+#### 5. Run the Streamlit Demo
+
+```bash
+streamlit run streamlit_app.py
+# Opens at http://localhost:8501
+```
+
+---
+
 ## 📚 Supported Document Formats
 
-- **PDF** - Including tables and structured content
-- **DOCX** - Microsoft Word documents
-- **Markdown** - .md files
-- **JSON** - Structured data
-- **Email** - .eml files
-- **Text** - Plain text files
+| Format | Extension | Parser |
+|--------|-----------|--------|
+| Plain Text | `.txt` | Built-in |
+| PDF | `.pdf` | PyPDF2 + pdfplumber |
+| Word | `.docx` | python-docx |
+| Markdown | `.md` | Native parsing |
+| Email | `.eml` / `.msg` | Email parser |
+| JSON | `.json` | Structured data |
+
+---
 
 ## 🔒 Security & Guardrails
 
 ### Role-Based Access Control (RBAC)
 
-Supported roles:
-- `admin` - Full access
-- `legal` - Legal documents
-- `audit` - Audit reports
-- `compliance` - Compliance policies
-- `read_only` - Read-only access
+Hierarchical role system with inheritance — higher roles automatically gain access to all lower-level documents:
 
-### PII Redaction
+```
+ADMIN → LEGAL → AUDIT → COMPLIANCE → READ_ONLY
+```
 
-Automatically detects and redacts:
-- Email addresses
-- Phone numbers
-- Social Security Numbers
-- Credit card numbers
-- Personal names (via NER)
+### PII Detection & Redaction
 
-### Multi-Tenancy
+Automatically detects and redacts sensitive information using regex patterns and spaCy NER:
 
-Complete tenant isolation at the metadata level ensures data separation.
+| PII Type | Example | Method |
+|----------|---------|--------|
+| Email | `user@company.com` | Regex |
+| Phone | `555-123-4567` | Regex |
+| SSN | `123-45-6789` | Regex |
+| Credit Card | `4111-1111-1111-1111` | Regex |
+| Personal Names | `John Smith` | spaCy NER |
+| IP Addresses | `192.168.1.1` | Regex |
 
-## 📊 Evaluation Metrics
+### Rate Limiting
 
-### Recall@K
-Measures retrieval quality - % of relevant documents in top K results.
+Token-bucket per tenant with configurable burst capacity and automatic refill.
 
-### Mean Reciprocal Rank (MRR)
-Measures ranking quality - average of reciprocal ranks of first relevant result.
+---
 
-### Hallucination Rate
-% of answers not supported by retrieved context.
+## 📊 Evaluation Framework
 
-### Confidence Score
-LLM-generated confidence in the answer based on context quality.
+PoliRAG includes a built-in evaluation framework for measuring retrieval and generation quality:
+
+| Metric | Description | Default Threshold |
+|--------|-------------|-------------------|
+| **Recall@K** | Fraction of relevant docs retrieved in top-K | ≥ 0.70 |
+| **MRR** | Mean Reciprocal Rank of first relevant result | ≥ 0.60 |
+| **Precision@K** | Fraction of top-K results that are relevant | ≥ 0.50 |
+| **NDCG@K** | Normalized Discounted Cumulative Gain | ≥ 0.60 |
+| **Hallucination Rate** | Rate of unsupported claims | ≤ 0.15 |
+| **Confidence Score** | Mean LLM confidence in answers | ≥ 0.70 |
+
+### Running Evaluations
+
+```bash
+# Create sample golden dataset
+python scripts/evaluate.py --create-sample
+
+# Run evaluation with threshold checks
+python scripts/evaluate.py --recall-threshold 0.70 --mrr-threshold 0.60
+```
+
+---
+
+## 🧪 Testing
+
+The project includes **42 tests** across 6 modules:
+
+```bash
+# Run full test suite
+pytest tests/ -v
+
+# Run specific modules
+pytest tests/test_ingestion.py -v    # Loaders, dedup, pipeline
+pytest tests/test_chunking.py -v     # Recursive + table chunking
+pytest tests/test_guardrails.py -v   # PII, RBAC, rate limiting
+pytest tests/test_retrieval.py -v    # BM25, FAISS stores
+pytest tests/test_eval.py -v         # Metrics, golden dataset
+
+# With coverage
+pytest tests/ -v --cov=src
+```
+
+---
 
 ## 🔧 Configuration
 
-All configuration is managed via environment variables. See `.env.example` for full list.
-
-Key configurations:
+All configuration is managed via environment variables. See `.env.example` for the full list.
 
 ```bash
 # Chunking
@@ -217,115 +307,87 @@ RETRIEVAL_SEMANTIC_WEIGHT=0.7
 # Generation
 GENERATION_CONFIDENCE_THRESHOLD=0.65
 GENERATION_REQUIRE_CITATION=true
+
+# Guardrails
+ENABLE_PII_REDACTION=true
+ENABLE_RBAC=true
+ENABLE_RATE_LIMITING=true
+RATE_LIMIT_REQUESTS_PER_MINUTE=60
 ```
-
-## 🧪 Testing
-
-Run the full test suite:
-
-```bash
-pytest tests/ -v --cov=src
-```
-
-Run specific test modules:
-
-```bash
-pytest tests/test_ingestion.py -v
-pytest tests/test_retrieval.py -v
-pytest tests/test_eval.py -v
-```
-
-## 📈 Monitoring
-
-### Metrics Endpoint
-
-Prometheus metrics available at:
-```
-http://localhost:9090/metrics
-```
-
-### Key Metrics
-
-- `polirag_requests_total` - Total API requests
-- `polirag_retrieval_duration_seconds` - Retrieval latency
-- `polirag_generation_confidence` - Answer confidence distribution
-- `polirag_eval_recall_at_k` - Current Recall@K score
-- `polirag_eval_hallucination_rate` - Current hallucination rate
-- `polirag_pii_detections_total` - PII detection count
-
-## 🐳 Docker Deployment
-
-### Build Image
-
-```bash
-docker build -t polirag:latest -f docker/Dockerfile .
-```
-
-### Run with Docker Compose
-
-```bash
-docker-compose -f docker/docker-compose.yml up
-```
-
-## 🛠️ Development
-
-### Code Style
-
-This project uses:
-- **Black** for code formatting
-- **Ruff** for linting
-- **MyPy** for type checking
-
-Run checks:
-
-```bash
-black src/ tests/
-ruff check src/ tests/
-mypy src/
-```
-
-### Pre-commit Hooks
-
-```bash
-pre-commit install
-pre-commit run --all-files
-```
-
-## 📖 API Documentation
-
-Once the server is running, visit:
-- **Interactive API docs**: http://localhost:8001/docs
-- **ReDoc**: http://localhost:8001/redoc
-
-## 🎯 Production Deployment
-
-### Checklist
-
-- [ ] Set `ENVIRONMENT=production` in .env
-- [ ] Configure proper log aggregation
-- [ ] Set up Prometheus metrics scraping
-- [ ] Enable rate limiting
-- [ ] Configure RBAC policies
-- [ ] Set up backup for indexes
-- [ ] Configure SSL/TLS
-- [ ] Set proper resource limits
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-This is a production system template. Contributions should focus on:
-- Bug fixes
-- Performance improvements
-- Additional document format support
-- Enhanced evaluation metrics
-
-## 📧 Support
-
-For issues and questions, please open an issue on the repository.
 
 ---
 
-**Built for production. Designed for compliance. Tested for reliability.**
+## 📈 Monitoring & Observability
+
+### Structured Logging
+
+Loguru with JSON + human-readable output, configurable via `LOG_LEVEL`.
+
+### Prometheus Metrics
+
+Available at `/metrics`:
+
+| Metric | Type | Description |
+|--------|------|-------------|
+| `polirag_requests_total` | Counter | Total API requests by endpoint |
+| `polirag_retrieval_duration_seconds` | Histogram | Retrieval latency |
+| `polirag_generation_confidence` | Histogram | Answer confidence distribution |
+| `polirag_eval_recall_at_k` | Gauge | Current Recall@K score |
+| `polirag_eval_hallucination_rate` | Gauge | Current hallucination rate |
+| `polirag_pii_detections_total` | Counter | PII entities detected |
+
+---
+
+## 🐳 Docker Deployment
+
+```bash
+# Build image
+docker build -t polirag:latest -f docker/Dockerfile .
+
+# Run with Docker Compose
+docker-compose -f docker/docker-compose.yml up
+```
+
+The Docker setup uses a multi-stage build for minimal image size, runs as a non-root user, and includes health checks.
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Backend** | Python 3.11, FastAPI, Pydantic v2, Uvicorn |
+| **AI / ML** | OpenAI GPT-4, text-embedding-3-large, Sentence Transformers, Cross-Encoder |
+| **Vector Search** | FAISS (semantic), BM25 (keyword), Hybrid retrieval |
+| **NLP** | spaCy (NER), rank-bm25 |
+| **Storage** | SQLite (embedding cache), FAISS indexes, JSON manifests |
+| **Observability** | Loguru, Prometheus, structured JSON logging |
+| **Infrastructure** | Docker, Docker Compose |
+| **Testing** | pytest, pytest-mock, pytest-asyncio |
+| **Frontend** | Streamlit (interactive demo) |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Focus areas:
+- Bug fixes and performance improvements
+- Additional document format support
+- Enhanced evaluation metrics
+- UI/UX improvements for the Streamlit demo
+
+---
+
+<p align="center">
+  <strong>Built for production. Designed for compliance. Tested for reliability.</strong>
+  <br><br>
+  <a href="https://polirag-enterprise-policy-compliance.streamlit.app/">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-6C63FF?style=for-the-badge" alt="Live Demo" />
+  </a>
+</p>
