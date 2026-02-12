@@ -1,0 +1,101 @@
+ACME Corporation — Data Retention & Security Policy
+Document ID: POL-2025-001
+Effective Date: January 1, 2025
+Classification: Internal
+
+1. PURPOSE
+
+This policy establishes requirements for the retention, protection, and
+disposal of company records and data in compliance with applicable federal
+and state regulations, including SOX, HIPAA, and GDPR where applicable.
+
+2. SCOPE
+
+This policy applies to all employees, contractors, temporary workers, and
+third-party service providers who create, receive, maintain, or manage
+company records in any format — paper, electronic, or otherwise.
+
+3. RETENTION PERIODS
+
+3.1 Financial Records
+All financial records including general ledgers, accounts payable and
+receivable, tax filings, and audit reports must be retained for a minimum
+of seven (7) years from the end of the fiscal year in which they were
+created.
+
+3.2 Employee Records
+Human resources records must be retained for the duration of employment
+plus five (5) years following separation. This includes offer letters,
+performance reviews, disciplinary actions, and benefits enrollment.
+
+3.3 Customer Data
+Customer personally identifiable information (PII) must be retained for
+the duration of the business relationship plus three (3) years, unless a
+longer period is required by contractual or regulatory obligations.
+
+3.4 Email Communications
+Business-related email communications must be retained for three (3) years.
+Emails subject to legal hold must be retained indefinitely until the hold
+is released by the Legal department.
+
+4. DATA SECURITY REQUIREMENTS
+
+4.1 Password Policy
+All system passwords must meet the following minimum requirements:
+- Minimum length: 12 characters
+- Must contain at least one uppercase letter, one lowercase letter,
+  one digit, and one special character
+- Passwords must be changed every 90 days
+- Previous 12 passwords may not be reused
+
+4.2 Encryption
+All data classified as Confidential or Restricted must be encrypted both
+at rest (AES-256) and in transit (TLS 1.2 or higher). Encryption keys
+must be rotated annually.
+
+4.3 Access Control
+Access to sensitive data must follow the principle of least privilege.
+All access requests must be approved by the data owner and reviewed
+quarterly. Multi-factor authentication (MFA) is required for access to
+all production systems.
+
+5. INCIDENT RESPONSE
+
+5.1 Reporting
+Any suspected data breach or security incident must be reported to the
+Information Security team within one (1) hour of discovery via the
+incident hotline or the security@acme.example.com email address.
+
+5.2 Escalation Procedure
+- Severity 1 (Critical): Immediate notification to CISO, Legal, and
+  executive leadership. External notification to affected parties within
+  72 hours as required by GDPR.
+- Severity 2 (High): Notification to CISO within 4 hours. Investigation
+  initiated within 8 hours.
+- Severity 3 (Medium): Notification to Security Operations within 24
+  hours. Standard investigation timeline.
+
+6. DISPOSAL
+
+Records that have exceeded their retention period and are not subject to
+any legal hold must be securely destroyed. Paper records shall be
+cross-cut shredded. Electronic records shall be permanently deleted using
+NIST 800-88 compliant sanitization methods.
+
+7. COMPLIANCE VIOLATIONS
+
+Violations of this policy may result in disciplinary action, up to and
+including termination of employment. Employees must report suspected
+violations to the Compliance department or through the anonymous
+compliance hotline.
+
+8. REVIEW
+
+This policy will be reviewed and updated annually by the Chief Compliance
+Officer in consultation with Legal, Information Security, and Human
+Resources departments.
+
+---
+Approved by: Jane Smith, Chief Compliance Officer
+Last Reviewed: December 15, 2024
+Next Review: December 15, 2025
