@@ -34,6 +34,22 @@ PoliRAG is an **enterprise-grade Retrieval-Augmented Generation (RAG) system** d
 
 ---
 
+## 📸 Demo Screenshots
+
+| **Overview Dashboard** | **Document Ingestion** |
+|:---:|:---:|
+| ![Overview](docs/screenshots/overview.png) | ![Ingestion](docs/screenshots/ingestion.png) |
+
+| **Interactive Chunking** | **Guardrails Enforcement** |
+|:---:|:---:|
+| ![Chunking](docs/screenshots/chunking.png) | ![Guardrails](docs/screenshots/guardrails.png) |
+
+| **Evaluation Metrics** | **System Architecture** |
+|:---:|:---:|
+| ![Eval](docs/screenshots/eval.png) | ![Architecture](docs/screenshots/architecture.png) |
+
+---
+
 ## 🏗️ Architecture
 
 ```
