@@ -44,9 +44,9 @@ PoliRAG is an **enterprise-grade Retrieval-Augmented Generation (RAG) system** d
 |:---:|:---:|
 | ![Chunking](docs/screenshots/chunking.png) | ![Guardrails](docs/screenshots/guardrails.png) |
 
-| **Evaluation Metrics** | **System Architecture** |
-|:---:|:---:|
-| ![Eval](docs/screenshots/eval.png) | ![Architecture](docs/screenshots/architecture.png) |
+| **Evaluation Metrics** |
+|:---:|
+| ![Eval](docs/screenshots/eval.png) |
 
 ---
 
