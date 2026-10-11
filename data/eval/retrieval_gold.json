@@ -1,0 +1,923 @@
+{
+ "name": "policy_retrieval_gold_v1",
+ "version": "1.0",
+ "corpus_dir": "data/raw",
+ "questions": [
+  {
+   "id": "q001",
+   "type": "factual",
+   "question": "Which department releases an email from legal hold?",
+   "gold_answer": "The Legal department releases emails subject to legal hold.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "until the hold is released by the Legal department"
+    }
+   ]
+  },
+  {
+   "id": "q002",
+   "type": "factual",
+   "question": "How must paper records be destroyed once retention has expired?",
+   "gold_answer": "Paper records are cross-cut shredded.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "Paper records shall be cross-cut shredded"
+    }
+   ]
+  },
+  {
+   "id": "q003",
+   "type": "factual",
+   "question": "What standard governs sanitization of electronic records for disposal?",
+   "gold_answer": "NIST 800-88 compliant sanitization methods.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "NIST 800-88 compliant sanitization methods"
+    }
+   ]
+  },
+  {
+   "id": "q004",
+   "type": "factual",
+   "question": "Who reviews the data retention and security policy each year?",
+   "gold_answer": "The Chief Compliance Officer, in consultation with Legal, Information Security, and Human Resources.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "reviewed and updated annually by the Chief Compliance Officer"
+    }
+   ]
+  },
+  {
+   "id": "q005",
+   "type": "factual",
+   "question": "What encryption algorithm protects Confidential data at rest?",
+   "gold_answer": "AES-256 (plus TLS 1.2 or higher in transit).",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "encrypted both at rest (AES-256) and in transit (TLS 1.2 or higher)"
+    }
+   ]
+  },
+  {
+   "id": "q006",
+   "type": "factual",
+   "question": "Which authentication control is required for production systems?",
+   "gold_answer": "Multi-factor authentication (MFA).",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "Multi-factor authentication (MFA) is required for access to all production systems"
+    }
+   ]
+  },
+  {
+   "id": "q007",
+   "type": "factual",
+   "question": "What must a vendor sign before dealing with government officials for ACME?",
+   "gold_answer": "An annual anti-corruption certification, after completing due diligence.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "must complete anti-corruption due diligence and sign an anti-corruption certification every year"
+    }
+   ]
+  },
+  {
+   "id": "q008",
+   "type": "factual",
+   "question": "Which group must sit on the review of changes to payment code?",
+   "gold_answer": "A member of the Security Champions group must be one of the two reviewers.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "require two reviewers, one of whom must be a member of the Security Champions group"
+    }
+   ]
+  },
+  {
+   "id": "q009",
+   "type": "factual",
+   "question": "What do Tier 1 vendors have to provide before signing a contract?",
+   "gold_answer": "A current SOC 2 Type II report or ISO 27001 certificate, plus the full security questionnaire.",
+   "evidence": [
+    {
+     "doc": "vendor_risk_management.txt",
+     "quote": "provide a current SOC 2 Type II report or ISO 27001 certificate before contract signature"
+    }
+   ]
+  },
+  {
+   "id": "q010",
+   "type": "factual",
+   "question": "Who is the only person allowed to make external statements during an incident?",
+   "gold_answer": "The Crisis Management Team lead.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "the Crisis Management Team lead is the only person authorized to issue external statements"
+    }
+   ]
+  },
+  {
+   "id": "q011",
+   "type": "factual",
+   "question": "What happens to backups of personal data after a deletion request is approved?",
+   "gold_answer": "Backup copies are overwritten at the end of the normal backup cycle.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "Backup copies are overwritten at the end of the normal backup cycle"
+    }
+   ]
+  },
+  {
+   "id": "q012",
+   "type": "factual",
+   "question": "What must be installed on a personal phone before it can read company email?",
+   "gold_answer": "The device must be enrolled in the mobile device management (MDM) program.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "only after enrolling in the mobile device management (MDM) program"
+    }
+   ]
+  },
+  {
+   "id": "q013",
+   "type": "factual",
+   "question": "Can company data be accessed on public Wi-Fi?",
+   "gold_answer": "Only when the corporate VPN is active.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "only when the corporate VPN is active"
+    }
+   ]
+  },
+  {
+   "id": "q014",
+   "type": "factual",
+   "question": "Who may raise a vendor's risk tier?",
+   "gold_answer": "Information Security may raise a tier but not lower it.",
+   "evidence": [
+    {
+     "doc": "vendor_risk_management.txt",
+     "quote": "Information Security may raise a vendor's tier but may not lower it"
+    }
+   ]
+  },
+  {
+   "id": "q015",
+   "type": "factual",
+   "question": "What approval is needed to give a gift to a government official?",
+   "gold_answer": "Prior written approval from Legal, regardless of value.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "requires prior written approval from Legal, regardless of value"
+    }
+   ]
+  },
+  {
+   "id": "q016",
+   "type": "factual",
+   "question": "Who must approve outside employment or board service?",
+   "gold_answer": "The employee's manager and Compliance, in writing.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "requires written approval from the employee's manager and Compliance"
+    }
+   ]
+  },
+  {
+   "id": "q017",
+   "type": "factual",
+   "question": "What must be done to production data before it is used in test environments?",
+   "gold_answer": "It must be masked or anonymized.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "unless it has been masked or anonymized"
+    }
+   ]
+  },
+  {
+   "id": "q018",
+   "type": "factual",
+   "question": "Who approves emergency changes outside the normal release schedule?",
+   "gold_answer": "The VP of Engineering or the on-call incident commander.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "with approval from the VP of Engineering or the on-call incident commander"
+    }
+   ]
+  },
+  {
+   "id": "q019",
+   "type": "factual",
+   "question": "Where does a suspected breach get reported inside the company?",
+   "gold_answer": "To the Information Security team via the incident hotline or security@acme.example.com.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "reported to the Information Security team"
+    }
+   ]
+  },
+  {
+   "id": "q020",
+   "type": "factual",
+   "question": "Which systems are classed as Tier A for disaster recovery?",
+   "gold_answer": "Payments, the customer portal, and authentication.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "Tier A systems (payments, customer portal, and authentication)"
+    }
+   ]
+  },
+  {
+   "id": "q021",
+   "type": "numeric",
+   "question": "What is the minimum length of a system password?",
+   "gold_answer": "12 characters.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "Minimum length: 12 characters"
+    }
+   ]
+  },
+  {
+   "id": "q022",
+   "type": "numeric",
+   "question": "How often must passwords be changed?",
+   "gold_answer": "Every 90 days.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "Passwords must be changed every 90 days"
+    }
+   ]
+  },
+  {
+   "id": "q023",
+   "type": "numeric",
+   "question": "How long must financial records be retained?",
+   "gold_answer": "At least seven years from the end of the fiscal year in which they were created.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "minimum of seven (7) years from the end of the fiscal year"
+    }
+   ]
+  },
+  {
+   "id": "q024",
+   "type": "numeric",
+   "question": "Within how many hours must a suspected security incident be reported to Information Security?",
+   "gold_answer": "Within one hour of discovery.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "within one (1) hour of discovery"
+    }
+   ]
+  },
+  {
+   "id": "q025",
+   "type": "numeric",
+   "question": "How long do backups get kept before they expire?",
+   "gold_answer": "35 days (month-end financial backups are kept 12 months).",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "Backups are retained for 35 days"
+    }
+   ]
+  },
+  {
+   "id": "q026",
+   "type": "numeric",
+   "question": "What is the recovery point objective for Tier A systems?",
+   "gold_answer": "15 minutes.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "recovery point objective (RPO) of 15 minutes"
+    }
+   ]
+  },
+  {
+   "id": "q027",
+   "type": "numeric",
+   "question": "How frequently are production databases backed up?",
+   "gold_answer": "Every 6 hours.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "must be backed up every 6 hours"
+    }
+   ]
+  },
+  {
+   "id": "q028",
+   "type": "numeric",
+   "question": "What is the maximum value of a gift an employee may accept from one source per year?",
+   "gold_answer": "$75.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "gifts with a market value of up to $75 from a single source in a calendar year"
+    }
+   ]
+  },
+  {
+   "id": "q029",
+   "type": "numeric",
+   "question": "Up to what annual contract value can a department head approve a vendor contract?",
+   "gold_answer": "$50,000 per year.",
+   "evidence": [
+    {
+     "doc": "vendor_risk_management.txt",
+     "quote": "Contracts up to $50,000 per year may be approved by a department head"
+    }
+   ]
+  },
+  {
+   "id": "q030",
+   "type": "numeric",
+   "question": "How many days do vendors have to return or destroy ACME data after the relationship ends?",
+   "gold_answer": "30 days.",
+   "evidence": [
+    {
+     "doc": "vendor_risk_management.txt",
+     "quote": "return or destroy all ACME data within 30 days"
+    }
+   ]
+  },
+  {
+   "id": "q031",
+   "type": "numeric",
+   "question": "How quickly must critical vulnerabilities in dependencies be fixed?",
+   "gold_answer": "Within 7 days.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "Critical vulnerabilities must be fixed within 7 days"
+    }
+   ]
+  },
+  {
+   "id": "q032",
+   "type": "numeric",
+   "question": "How many days does ACME have to complete a data subject request?",
+   "gold_answer": "30 calendar days from receipt, extendable by up to 60 more days for complex requests.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "complete the request within 30 calendar days of receipt"
+    }
+   ]
+  },
+  {
+   "id": "q033",
+   "type": "numeric",
+   "question": "After how many minutes of inactivity must a company laptop lock?",
+   "gold_answer": "10 minutes.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "lock automatically after 10 minutes of inactivity"
+    }
+   ]
+  },
+  {
+   "id": "q034",
+   "type": "numeric",
+   "question": "How many hours does a user have to report a lost laptop?",
+   "gold_answer": "Within 4 hours.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "reported to the IT Service Desk within 4 hours"
+    }
+   ]
+  },
+  {
+   "id": "q035",
+   "type": "numeric",
+   "question": "How long must the privacy request log be kept?",
+   "gold_answer": "Six years.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "log of all requests and responses for six (6) years"
+    }
+   ]
+  },
+  {
+   "id": "q036",
+   "type": "numeric",
+   "question": "How long is the annual change freeze?",
+   "gold_answer": "From December 15 through January 5.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "change freeze from December 15 through January 5"
+    }
+   ]
+  },
+  {
+   "id": "q037",
+   "type": "numeric",
+   "question": "Within how many hours must the supervisory authority be told about a personal data breach?",
+   "gold_answer": "Within 72 hours of becoming aware of the breach.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "within 72 hours of becoming aware of a personal data breach"
+    }
+   ]
+  },
+  {
+   "id": "q038",
+   "type": "multi_hop",
+   "question": "What is the maximum time between discovering a breach of personal data and telling both the internal security team and the regulator?",
+   "gold_answer": "Report to Information Security within 1 hour; notify the supervisory authority within 72 hours.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "within one (1) hour of discovery"
+    },
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "within 72 hours of becoming aware of a personal data breach"
+    }
+   ]
+  },
+  {
+   "id": "q039",
+   "type": "multi_hop",
+   "question": "How long are customer PII records kept versus the log of privacy requests about them?",
+   "gold_answer": "Customer PII: relationship plus 3 years; privacy request log: 6 years.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "duration of the business relationship plus three (3) years"
+    },
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "log of all requests and responses for six (6) years"
+    }
+   ]
+  },
+  {
+   "id": "q040",
+   "type": "multi_hop",
+   "question": "What encryption applies both to Confidential data in general and to backups?",
+   "gold_answer": "AES-256 for data at rest generally and for all backups.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "at rest (AES-256)"
+    },
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "All backups must be encrypted with AES-256"
+    }
+   ]
+  },
+  {
+   "id": "q041",
+   "type": "multi_hop",
+   "question": "If an office becomes unavailable, what must critical-function employees do and what controls apply to their remote access?",
+   "gold_answer": "Switch to remote work within one business day; use the corporate VPN with no split tunneling.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "must switch to remote work within one business day"
+    },
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "Split tunneling is prohibited"
+    }
+   ]
+  },
+  {
+   "id": "q042",
+   "type": "multi_hop",
+   "question": "How long must financial backups be kept compared with the underlying financial records?",
+   "gold_answer": "Month-end financial backups are kept 12 months; the financial records themselves seven years.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "Month-end backups of financial systems are retained for 12 months"
+    },
+    {
+     "doc": "sample_policy.txt",
+     "quote": "minimum of seven (7) years"
+    }
+   ]
+  },
+  {
+   "id": "q043",
+   "type": "multi_hop",
+   "question": "When a vendor handling personal data has an incident, how soon must it tell ACME, and how soon must ACME tell the regulator?",
+   "gold_answer": "Vendor notifies ACME within 48 hours of discovery; ACME notifies the authority within 72 hours of becoming aware.",
+   "evidence": [
+    {
+     "doc": "vendor_risk_management.txt",
+     "quote": "notify ACME of a security incident within 48 hours of discovery"
+    },
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "within 72 hours of becoming aware of a personal data breach"
+    }
+   ]
+  },
+  {
+   "id": "q044",
+   "type": "multi_hop",
+   "question": "What restriction applies to an employee whose relative is involved in a contract decision, and who must approve contracts above $250,000 a year?",
+   "gold_answer": "Family relationships must be disclosed and the employee cannot take part in contract decisions; contracts above $250,000 need CFO approval.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "may not directly supervise, or take part in hiring or contract decisions about, a family member"
+    },
+    {
+     "doc": "vendor_risk_management.txt",
+     "quote": "Contracts above $250,000 per year require approval from the Chief Financial Officer"
+    }
+   ]
+  },
+  {
+   "id": "q045",
+   "type": "multi_hop",
+   "question": "How long are security logs and change records each retained?",
+   "gold_answer": "Security and audit logs 13 months in total; change records three years.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "retained online for 90 days and in archive storage for a total of 13 months"
+    },
+    {
+     "doc": "software_change_management.txt",
+     "quote": "retained for three (3) years"
+    }
+   ]
+  },
+  {
+   "id": "q046",
+   "type": "multi_hop",
+   "question": "What happens to a departing employee's account and when must their laptop be returned?",
+   "gold_answer": "Devices must be returned by the last working day and accounts are deactivated within 24 hours of separation.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "returned or disabled by the employee's last working day"
+    },
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "deactivated within 24 hours of the separation date"
+    }
+   ]
+  },
+  {
+   "id": "q047",
+   "type": "multi_hop",
+   "question": "Can source code containing personal data be pasted into a public AI chatbot, and what should be done with such production data in test?",
+   "gold_answer": "No; source code and Confidential data must not go into public chatbots, and production personal data in test must be masked.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "must not be entered into public AI chatbots"
+    },
+    {
+     "doc": "software_change_management.txt",
+     "quote": "unless it has been masked or anonymized"
+    }
+   ]
+  },
+  {
+   "id": "q048",
+   "type": "multi_hop",
+   "question": "How often must the Tier A restore be tested and how often is the full disaster recovery exercise held?",
+   "gold_answer": "Tier A restores quarterly; full DR exercise yearly.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "tested quarterly for Tier A systems"
+    },
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "full disaster recovery exercise must be run once a year"
+    }
+   ]
+  },
+  {
+   "id": "q049",
+   "type": "multi_hop",
+   "question": "Which two departments must jointly approve work from a country not on the approved list?",
+   "gold_answer": "Human Resources and Information Security.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "requires prior approval from both Human Resources and Information Security"
+    }
+   ]
+  },
+  {
+   "id": "q050",
+   "type": "negation",
+   "question": "Are USB storage devices allowed by default?",
+   "gold_answer": "No; they are blocked by default and exceptions need written approval and last at most 30 days.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "USB storage devices are blocked by default"
+    }
+   ]
+  },
+  {
+   "id": "q051",
+   "type": "negation",
+   "question": "Can an employee accept a gift card from a supplier?",
+   "gold_answer": "No; cash and cash equivalents such as gift cards may never be accepted.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "Cash and cash equivalents, such as gift cards, may never be accepted"
+    }
+   ]
+  },
+  {
+   "id": "q052",
+   "type": "negation",
+   "question": "Is ACME allowed to sell personal data?",
+   "gold_answer": "No; ACME does not sell personal data.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "ACME does not sell personal data"
+    }
+   ]
+  },
+  {
+   "id": "q053",
+   "type": "negation",
+   "question": "May developers commit directly to the main branch?",
+   "gold_answer": "No; direct commits to main are disabled.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "Direct commits to the main branch are disabled"
+    }
+   ]
+  },
+  {
+   "id": "q054",
+   "type": "negation",
+   "question": "Are facilitation payments to government officials ever permitted?",
+   "gold_answer": "No; they are prohibited even where local practice allows them.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "are prohibited, even where local practice allows them"
+    }
+   ]
+  },
+  {
+   "id": "q055",
+   "type": "negation",
+   "question": "Can a Tier 3 vendor be reassessed on a regular cycle?",
+   "gold_answer": "No; Tier 3 vendors are not reassessed.",
+   "evidence": [
+    {
+     "doc": "vendor_risk_management.txt",
+     "quote": "Tier 3 vendors are not reassessed"
+    }
+   ]
+  },
+  {
+   "id": "q056",
+   "type": "negation",
+   "question": "Is a fee charged for a data subject access request?",
+   "gold_answer": "No fee is charged, except a reasonable fee for manifestly unfounded or excessive requests.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "No fee is charged for a request"
+    }
+   ]
+  },
+  {
+   "id": "q057",
+   "type": "negation",
+   "question": "May a personal laptop connect to production systems?",
+   "gold_answer": "No; personal laptops and tablets are not permitted to connect to production systems.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "are not permitted to connect to production systems"
+    }
+   ]
+  },
+  {
+   "id": "q058",
+   "type": "paraphrase",
+   "question": "How long can my work-from-abroad stretch last in a year?",
+   "gold_answer": "Up to 30 consecutive days per calendar year in an approved country.",
+   "evidence": [
+    {
+     "doc": "acceptable_use_remote_work.txt",
+     "quote": "for up to 30 consecutive days per calendar year"
+    }
+   ]
+  },
+  {
+   "id": "q059",
+   "type": "paraphrase",
+   "question": "What's the cap on what I can spend entertaining one client before my director must sign off?",
+   "gold_answer": "Entertainment over $250 per person needs prior director approval.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "over $250 per person requires prior approval from the employee's director"
+    }
+   ]
+  },
+  {
+   "id": "q060",
+   "type": "paraphrase",
+   "question": "What qualifies a person as having been correctly identified before ACME hands over their records?",
+   "gold_answer": "At least two identifying data points must match the record on file.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "At least two identifying data points must match"
+    }
+   ]
+  },
+  {
+   "id": "q061",
+   "type": "paraphrase",
+   "question": "How soon do I need to flag a possible conflict of interest?",
+   "gold_answer": "Within 10 business days of becoming aware.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "within 10 business days of becoming aware of it"
+    }
+   ]
+  },
+  {
+   "id": "q062",
+   "type": "paraphrase",
+   "question": "How fast must a leaked API key be replaced?",
+   "gold_answer": "Rotated within 24 hours of detection.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "rotated within 24 hours of detection"
+    }
+   ]
+  },
+  {
+   "id": "q063",
+   "type": "paraphrase",
+   "question": "How many past passwords am I blocked from picking again?",
+   "gold_answer": "The previous 12 passwords may not be reused.",
+   "evidence": [
+    {
+     "doc": "sample_policy.txt",
+     "quote": "Previous 12 passwords may not be reused"
+    }
+   ]
+  },
+  {
+   "id": "q064",
+   "type": "paraphrase",
+   "question": "What is the target time to get the customer portal running again after an outage?",
+   "gold_answer": "RTO of 4 hours for Tier A systems.",
+   "evidence": [
+    {
+     "doc": "business_continuity_backup.txt",
+     "quote": "recovery time objective (RTO) of 4 hours"
+    }
+   ]
+  },
+  {
+   "id": "q065",
+   "type": "paraphrase",
+   "question": "How often do I need to redo anti-corruption training?",
+   "gold_answer": "Within 30 days of hire and every 12 months after.",
+   "evidence": [
+    {
+     "doc": "anticorruption_gifts_conflicts.txt",
+     "quote": "within 30 days of hire and every 12 months after that"
+    }
+   ]
+  },
+  {
+   "id": "q066",
+   "type": "paraphrase",
+   "question": "How soon after a deletion request is approved does ACME wipe the data from live systems?",
+   "gold_answer": "Within 30 days.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "deleted from production systems within 30 days of an approved request"
+    }
+   ]
+  },
+  {
+   "id": "q067",
+   "type": "paraphrase",
+   "question": "Which hours am I allowed to push standard releases to production?",
+   "gold_answer": "Weekdays between 6 a.m. and 4 p.m. Eastern Time.",
+   "evidence": [
+    {
+     "doc": "software_change_management.txt",
+     "quote": "only on weekdays between 6 a.m. and 4 p.m. Eastern Time"
+    }
+   ]
+  },
+  {
+   "id": "q068",
+   "type": "paraphrase",
+   "question": "What does an employee do if someone emails them a privacy request?",
+   "gold_answer": "Forward it to the Privacy Office within two business days.",
+   "evidence": [
+    {
+     "doc": "privacy_data_subject_rights.txt",
+     "quote": "must forward it to the Privacy Office within two (2) business days"
+    }
+   ]
+  },
+  {
+   "id": "q069",
+   "type": "not_covered",
+   "question": "What is ACME's paid parental leave entitlement?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  },
+  {
+   "id": "q070",
+   "type": "not_covered",
+   "question": "How many vacation days do employees accrue per year?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  },
+  {
+   "id": "q071",
+   "type": "not_covered",
+   "question": "What is the reimbursement limit for airline tickets on business travel?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  },
+  {
+   "id": "q072",
+   "type": "not_covered",
+   "question": "What is the process for requesting a salary review?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  },
+  {
+   "id": "q073",
+   "type": "not_covered",
+   "question": "Which cloud provider hosts ACME's production workloads?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  },
+  {
+   "id": "q074",
+   "type": "not_covered",
+   "question": "What is the dress code policy for office days?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  },
+  {
+   "id": "q075",
+   "type": "not_covered",
+   "question": "How does ACME handle employee stock option vesting?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  },
+  {
+   "id": "q076",
+   "type": "not_covered",
+   "question": "What is the corporate policy on workplace parking?",
+   "gold_answer": "Not covered by the corpus; the correct behaviour is to say the policies do not address it.",
+   "evidence": []
+  }
+ ]
+}
