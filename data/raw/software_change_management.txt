@@ -1,0 +1,68 @@
+ACME Corporation — Software Development & Change Management Policy
+Document ID: POL-2025-007
+Effective Date: May 1, 2025
+Classification: Internal
+
+1. PURPOSE
+
+This policy sets the controls for building, reviewing, and releasing software
+and infrastructure changes so that production stays stable and secure.
+
+2. CODE CHANGES
+
+2.1 Code Review
+Every change to production code requires approval from at least one reviewer
+who is not the author. Changes to authentication, payments, or encryption code
+require two reviewers, one of whom must be a member of the Security Champions
+group.
+
+2.2 Branch Protection
+Direct commits to the main branch are disabled. All changes must pass the
+automated test suite before merge.
+
+2.3 Secrets in Code
+Credentials, API keys, and private keys must never be committed to source
+control. Secret scanning runs on every commit, and an exposed secret must be
+rotated within 24 hours of detection.
+
+3. SECURITY TESTING
+
+3.1 Dependency Scanning
+Dependencies are scanned for known vulnerabilities on every build. Critical
+vulnerabilities must be fixed within 7 days, high within 30 days, and medium
+within 90 days.
+
+3.2 Penetration Testing
+An independent penetration test of all internet-facing applications is
+required once a year and after any major architectural change.
+
+4. RELEASE MANAGEMENT
+
+4.1 Standard Changes
+Standard changes to production are deployed only on weekdays between 6 a.m.
+and 4 p.m. Eastern Time. There is a change freeze from December 15 through
+January 5.
+
+4.2 Emergency Changes
+Emergency changes may bypass the normal schedule with approval from the VP of
+Engineering or the on-call incident commander. A retrospective review must be
+held within 5 business days.
+
+4.3 Rollback
+Every production release must have a documented rollback plan that has been
+tested in staging.
+
+5. ENVIRONMENTS AND DATA
+
+5.1 Separation of Environments
+Development, test, and production environments must be separated. Developers
+do not have standing write access to production.
+
+5.2 Production Data in Testing
+Production data containing personal information must not be copied into
+development or test environments unless it has been masked or anonymized.
+
+6. RECORDS
+
+6.1 Change Records
+Change tickets, approvals, and test evidence are retained for three (3) years.
