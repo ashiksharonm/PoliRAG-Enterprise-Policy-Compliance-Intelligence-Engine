@@ -1,0 +1,16 @@
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      # Tests are mocked; no torch / sentence-transformers / spaCy models needed.
+      - run: pip install pytest "numpy<2" faiss-cpu rank-bm25 pydantic pydantic-settings python-dotenv tiktoken fastapi httpx loguru PyPDF2 pdfplumber python-docx prometheus_client
+      - run: PYTHONPATH=. pytest tests -q

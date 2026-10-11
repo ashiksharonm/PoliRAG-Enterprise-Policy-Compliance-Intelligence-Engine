@@ -252,7 +252,11 @@ Please provide your answer in JSON format as specified."""
 
 
 class HallucinationDetector:
-    """Detect hallucinations in generated responses."""
+    """Heuristic citation-coverage / confidence check for generated responses.
+
+    This does not verify claims against sources; it flags missing citations,
+    citation counts exceeding retrieved chunks, and low model confidence.
+    """
 
     def __init__(self):
         """Initialize hallucination detector."""

@@ -734,13 +734,14 @@ elif page == "📊 Evaluation Metrics":
 
     st.markdown("### Retrieval Quality Metrics")
 
-    # Simulated eval results (what a real eval run produces)
+    st.warning("Illustrative placeholder: the values below are hardcoded sample numbers, NOT results of an evaluation run. Run `scripts/evaluate.py` for real metrics.")
+    # Hardcoded placeholder values for UI layout only
     eval_results = {
         "Recall@5":       {"value": 0.82, "threshold": 0.70, "desc": "Fraction of relevant docs retrieved in top-5"},
         "MRR":            {"value": 0.78, "threshold": 0.60, "desc": "Mean Reciprocal Rank of first relevant result"},
         "Precision@5":    {"value": 0.65, "threshold": 0.50, "desc": "Fraction of top-5 results that are relevant"},
         "NDCG@5":         {"value": 0.74, "threshold": 0.60, "desc": "Normalized Discounted Cumulative Gain"},
-        "Hallucination Rate": {"value": 0.08, "threshold": 0.15, "desc": "Rate of unsupported claims in responses"},
+        "Hallucination Rate": {"value": 0.08, "threshold": 0.05, "desc": "Rate of unsupported claims in responses"},
         "Avg Confidence":  {"value": 0.87, "threshold": 0.70, "desc": "Mean confidence score of generated answers"},
     }
 
@@ -754,7 +755,7 @@ elif page == "📊 Evaluation Metrics":
         mrr_t = st.slider("MRR threshold", 0.0, 1.0, 0.60, 0.05)
         eval_results["MRR"]["threshold"] = mrr_t
     with t_cols[2]:
-        halluc_t = st.slider("Max Hallucination Rate", 0.0, 0.50, 0.15, 0.01)
+        halluc_t = st.slider("Max Hallucination Rate", 0.0, 0.50, 0.05, 0.01)
         eval_results["Hallucination Rate"]["threshold"] = halluc_t
 
     st.markdown("---")
