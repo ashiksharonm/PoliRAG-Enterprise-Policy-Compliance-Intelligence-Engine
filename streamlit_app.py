@@ -726,91 +726,73 @@ elif page == "📊 Evaluation Metrics":
         """
         <div class="hero-header">
             <h1>📊 Evaluation Metrics</h1>
-            <p>RAG retrieval quality metrics with configurable thresholds and pass/fail gates.</p>
+            <p>Measured retrieval quality from the committed ablation results.</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    st.markdown("### Retrieval Quality Metrics")
+    results_files = sorted((ROOT / "results").glob("retrieval_eval_*.json"))
+    gold_path = ROOT / "data" / "eval" / "retrieval_gold.json"
 
-    st.warning("Illustrative placeholder: the values below are hardcoded sample numbers, NOT results of an evaluation run. Run `scripts/evaluate.py` for real metrics.")
-    # Hardcoded placeholder values for UI layout only
-    eval_results = {
-        "Recall@5":       {"value": 0.82, "threshold": 0.70, "desc": "Fraction of relevant docs retrieved in top-5"},
-        "MRR":            {"value": 0.78, "threshold": 0.60, "desc": "Mean Reciprocal Rank of first relevant result"},
-        "Precision@5":    {"value": 0.65, "threshold": 0.50, "desc": "Fraction of top-5 results that are relevant"},
-        "NDCG@5":         {"value": 0.74, "threshold": 0.60, "desc": "Normalized Discounted Cumulative Gain"},
-        "Hallucination Rate": {"value": 0.08, "threshold": 0.05, "desc": "Rate of unsupported claims in responses"},
-        "Avg Confidence":  {"value": 0.87, "threshold": 0.70, "desc": "Mean confidence score of generated answers"},
-    }
-
-    # Threshold controls
-    st.markdown("##### Configure Thresholds")
-    t_cols = st.columns(3)
-    with t_cols[0]:
-        recall_t = st.slider("Recall@5 threshold", 0.0, 1.0, 0.70, 0.05)
-        eval_results["Recall@5"]["threshold"] = recall_t
-    with t_cols[1]:
-        mrr_t = st.slider("MRR threshold", 0.0, 1.0, 0.60, 0.05)
-        eval_results["MRR"]["threshold"] = mrr_t
-    with t_cols[2]:
-        halluc_t = st.slider("Max Hallucination Rate", 0.0, 0.50, 0.05, 0.01)
-        eval_results["Hallucination Rate"]["threshold"] = halluc_t
-
-    st.markdown("---")
-
-    # Results table
-    for name, data in eval_results.items():
-        cols = st.columns([3, 2, 2, 1])
-
-        cols[0].markdown(f"**{name}**<br><small style='color:rgba(250,250,250,0.5)'>{data['desc']}</small>",
-                         unsafe_allow_html=True)
-
-        # Value bar
-        cols[1].progress(min(data["value"], 1.0), text=f"{data['value']:.2f}")
-
-        # Threshold
-        cols[2].markdown(f"Threshold: `{data['threshold']:.2f}`")
-
-        # Pass/Fail
-        if name == "Hallucination Rate":
-            passed = data["value"] <= data["threshold"]
-        else:
-            passed = data["value"] >= data["threshold"]
-
-        badge = '<span class="badge-success">✓ PASS</span>' if passed else '<span class="badge-danger">✗ FAIL</span>'
-        cols[3].markdown(badge, unsafe_allow_html=True)
-
-    # Overall verdict
-    st.markdown("---")
-    all_passed = all(
-        (v["value"] <= v["threshold"] if k == "Hallucination Rate" else v["value"] >= v["threshold"])
-        for k, v in eval_results.items()
-    )
-
-    if all_passed:
-        st.success("### ✅ Overall: PASSED — All metrics within thresholds")
+    if not results_files:
+        st.info("No results found. Run `python scripts/evaluate_retrieval.py` to produce `results/retrieval_eval_<date>.json`.")
     else:
-        st.error("### ❌ Overall: FAILED — Some metrics below thresholds")
+        res_path = results_files[-1]
+        res = json.loads(res_path.read_text())
+        st.markdown("### Retrieval ablation")
+        st.caption(
+            f"Read from `results/{res_path.name}`. {res['n_questions_evaluated']} answerable questions "
+            f"over {res['n_documents']} synthetic policy documents; embeddings `{res['embedding_model']}`, "
+            f"reranker `{res['rerank_model']}`. Mean with bootstrap 95% CI "
+            f"({res['bootstrap']['n_boot']} resamples over questions)."
+        )
+        st.warning(
+            "Small, single-annotator, author-written set; retrieval only. Generation quality and "
+            "faithfulness are not evaluated. Recall@5/10 is near ceiling on this small corpus, "
+            "so rank-sensitive metrics (Recall@1, MRR) are the informative ones."
+        )
+        methods = ["bm25", "dense", "hybrid", "hybrid+rerank"]
+        cols_def = [("recall@1", "Recall@1"), ("recall@5", "Recall@5"), ("recall@10", "Recall@10"),
+                    ("mrr", "MRR"), ("ndcg@10", "nDCG@10")]
+        chunker = st.radio("Chunking strategy", list(res["chunkers"]), horizontal=True,
+                           help="clause = one chunk per numbered clause; window = fixed 100-word windows")
+        summary = res["chunkers"][chunker]
+        st.caption(f"{summary['n_chunks']} chunks")
+        rows = []
+        for m in methods:
+            o = summary["results"][m]["overall"]
+            rows.append({"Method": m, **{
+                label: f"{o[k]['mean']:.3f} [{o[k]['ci95'][0]:.3f}, {o[k]['ci95'][1]:.3f}]"
+                for k, label in cols_def}})
+        st.table(rows)
 
-    # Golden dataset info
+        st.markdown("##### MRR by question type")
+        types = sorted(summary["results"]["bm25"]["by_type"])
+        st.table([{"Method": m, **{
+            f"{t} (n={summary['results'][m]['by_type'][t]['n']})":
+                f"{summary['results'][m]['by_type'][t]['mrr']:.3f}" for t in types}}
+            for m in methods])
+
     st.markdown("---")
-    st.markdown("### 📦 Golden Q&A Dataset")
-    golden_path = ROOT / "data" / "eval" / "golden_qa.json"
-    if golden_path.exists():
-        golden_data = json.loads(golden_path.read_text())
-        qa_pairs = golden_data.get("qa_pairs", [])
-
-        st.markdown(f"**{len(qa_pairs)} Q&A pairs** loaded from `golden_qa.json`")
-
-        for i, qa in enumerate(qa_pairs):
-            with st.expander(f"Q{i+1}: {qa['question']}", expanded=False):
-                m1, m2 = st.columns(2)
-                m1.markdown(f'<span class="tag">{qa.get("category", "—")}</span>', unsafe_allow_html=True)
-                m2.markdown(f'<span class="tag">Difficulty: {qa.get("difficulty", "—")}</span>', unsafe_allow_html=True)
+    st.markdown("### Gold set")
+    if gold_path.exists():
+        gold = json.loads(gold_path.read_text())
+        qs = gold["questions"]
+        counts = {}
+        for q in qs:
+            counts[q["type"]] = counts.get(q["type"], 0) + 1
+        st.markdown(f"**{len(qs)} questions** in `retrieval_gold.json`: " +
+                    ", ".join(f"{t} {n}" for t, n in sorted(counts.items())) +
+                    ". `not_covered` questions have no evidence and are excluded from retrieval metrics.")
+        for q in qs:
+            with st.expander(f"{q['id']}: {q['question']}", expanded=False):
+                st.markdown(f'<span class="tag">{q["type"]}</span>', unsafe_allow_html=True)
+                st.markdown(f"**Gold answer:** {q['gold_answer']}")
+                for ev in q["evidence"]:
+                    st.markdown(f"- `{ev['doc']}`: \"{ev['quote']}\"")
     else:
-        st.info("Golden dataset not found. Run `python scripts/evaluate.py --create-sample` to create one.")
+        st.info("Gold set not found at `data/eval/retrieval_gold.json`.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
