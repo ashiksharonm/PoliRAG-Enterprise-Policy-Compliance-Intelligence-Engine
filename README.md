@@ -23,11 +23,11 @@ PoliRAG is an **enterprise-grade Retrieval-Augmented Generation (RAG) system** d
 
 | Feature | Description |
 |---------|-------------|
-| 🎯 **No Hallucinations** | Citation-required responses with confidence thresholds and hallucination detection |
+| 🎯 **No Hallucinations** | Citation-required responses with confidence thresholds and a heuristic citation/confidence check (`HallucinationDetector`) |
 | 🔍 **Hybrid Search** | BM25 (keyword) + FAISS (semantic) with cross-encoder reranking |
 | 🔒 **RBAC & Multi-Tenancy** | Hierarchical role-based access: Admin → Legal → Audit → Compliance → Read-Only |
 | 🕵️ **PII Protection** | Regex + spaCy NER for emails, SSNs, phone numbers, credit cards, names |
-| 📊 **Evaluation-Driven** | Automated Recall@K, MRR, Precision@K, NDCG, and hallucination rate tracking |
+| 📊 **Evaluation-Driven** | Automated Recall@K, MRR, Precision@K, NDCG, and hallucination-heuristic tracking |
 | 📄 **Document Versioning** | Content-hash deduplication, version tracking, and ingestion manifests |
 | ⚡ **Production-Ready** | Prometheus metrics, structured logging, rate limiting, Docker support |
 | 🧪 **Fully Tested** | 42-test pytest suite covering ingestion, chunking, guardrails, retrieval, and evaluation |
@@ -234,14 +234,16 @@ Token-bucket per tenant with configurable burst capacity and automatic refill.
 
 PoliRAG includes a built-in evaluation framework for measuring retrieval and generation quality:
 
-| Metric | Description | Default Threshold |
+| Metric | Description | Pass/fail threshold (a target, not a measured result) |
 |--------|-------------|-------------------|
 | **Recall@K** | Fraction of relevant docs retrieved in top-K | ≥ 0.70 |
 | **MRR** | Mean Reciprocal Rank of first relevant result | ≥ 0.60 |
 | **Precision@K** | Fraction of top-K results that are relevant | ≥ 0.50 |
 | **NDCG@K** | Normalized Discounted Cumulative Gain | ≥ 0.60 |
-| **Hallucination Rate** | Rate of unsupported claims | ≤ 0.15 |
+| **Hallucination Rate** | Fraction of answers flagged by the citation-coverage heuristic (not a factuality check) | ≤ 0.05 (`EVAL_MAX_HALLUCINATION_RATE` default) |
 | **Confidence Score** | Mean LLM confidence in answers | ≥ 0.70 |
+
+> **Note:** the thresholds above are configurable pass/fail gates, i.e. targets. They are not results. The bundled golden set (`data/eval/golden_qa.json`) contains only 5 QA pairs, so it is a smoke test for the eval pipeline and not a statistically meaningful benchmark. No measured Recall@K / MRR / hallucination numbers are reported here.
 
 ### Running Evaluations
 
