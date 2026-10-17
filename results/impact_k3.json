@@ -1,0 +1,4454 @@
+{
+  "config": {
+    "k": 3,
+    "min_severity": "medium",
+    "refine": true,
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+    "reranker": true
+  },
+  "summary": {
+    "n_questions": 76,
+    "n_likely_affected": 12,
+    "by_severity": {
+      "high": 8,
+      "medium": 14,
+      "low": 0,
+      "none": 54
+    },
+    "clauses": {
+      "unchanged": 84,
+      "renumbered": 0,
+      "modified": 5,
+      "added": 1,
+      "removed": 1
+    }
+  },
+  "clause_changes": [
+    {
+      "kind": "modified",
+      "old_id": "POL-2025-001#3.1",
+      "new_id": "POL-2025-001#3.1",
+      "title": "Financial Records",
+      "similarity": 0.95,
+      "word_changes": [
+        {
+          "old": "of seven (7) years",
+          "new": "of ten (10) years"
+        }
+      ]
+    },
+    {
+      "kind": "removed",
+      "old_id": "POL-2025-003#3.2",
+      "new_id": null,
+      "title": "Financial Review",
+      "similarity": 0.0,
+      "word_changes": []
+    },
+    {
+      "kind": "modified",
+      "old_id": "POL-2025-004#2.1",
+      "new_id": "POL-2025-004#2.1",
+      "title": "Backup Frequency",
+      "similarity": 0.955,
+      "word_changes": [
+        {
+          "old": "every 6 hours.",
+          "new": "every 4 hours."
+        }
+      ]
+    },
+    {
+      "kind": "modified",
+      "old_id": "POL-2025-004#2.2",
+      "new_id": "POL-2025-004#2.2",
+      "title": "Backup Retention",
+      "similarity": 0.947,
+      "word_changes": [
+        {
+          "old": "are retained for",
+          "new": "are kept for"
+        }
+      ]
+    },
+    {
+      "kind": "modified",
+      "old_id": "POL-2025-005#3.2",
+      "new_id": "POL-2025-005#3.2",
+      "title": "Response Time",
+      "similarity": 0.951,
+      "word_changes": [
+        {
+          "old": "within 30 calendar",
+          "new": "within 45 calendar"
+        },
+        {
+          "old": "first 30 days.",
+          "new": "first 45 days."
+        }
+      ]
+    },
+    {
+      "kind": "modified",
+      "old_id": "POL-2025-006#2.1",
+      "new_id": "POL-2025-006#2.1",
+      "title": "Gifts Received",
+      "similarity": 0.979,
+      "word_changes": [
+        {
+          "old": "to $75 from",
+          "new": "to $50 from"
+        }
+      ]
+    },
+    {
+      "kind": "added",
+      "old_id": null,
+      "new_id": "POL-2025-007#2.1a",
+      "title": "Emergency Changes",
+      "similarity": 0.0,
+      "word_changes": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "q001",
+      "question": "Which department releases an email from legal hold?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#3.4",
+          "title": "Email Communications",
+          "rank": 1,
+          "score": 6.5303
+        },
+        {
+          "clause_id": "POL-2025-001#6",
+          "title": "Disposal",
+          "rank": 2,
+          "score": -6.622
+        },
+        {
+          "clause_id": "POL-2025-001#8",
+          "title": "Review",
+          "rank": 3,
+          "score": -9.2652
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#3.4",
+          "title": "Email Communications",
+          "rank": 1,
+          "score": 6.5303
+        },
+        {
+          "clause_id": "POL-2025-001#6",
+          "title": "Disposal",
+          "rank": 2,
+          "score": -6.622
+        },
+        {
+          "clause_id": "POL-2025-001#8",
+          "title": "Review",
+          "rank": 3,
+          "score": -9.2652
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q002",
+      "question": "How must paper records be destroyed once retention has expired?",
+      "type": "factual",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#6",
+          "title": "Disposal",
+          "rank": 1,
+          "score": 6.7921
+        },
+        {
+          "clause_id": "POL-2025-003#6.1",
+          "title": "Vendor File Retention",
+          "rank": 2,
+          "score": 0.1978
+        },
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 3,
+          "score": -0.6616
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#6",
+          "title": "Disposal",
+          "rank": 1,
+          "score": 6.7921
+        },
+        {
+          "clause_id": "POL-2025-003#6.1",
+          "title": "Vendor File Retention",
+          "rank": 2,
+          "score": 0.1978
+        },
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 3,
+          "score": -0.6178
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 3,
+          "kind": "modified",
+          "old_id": "POL-2025-001#3.1",
+          "new_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "similarity": 0.95,
+          "word_changes": [
+            {
+              "old": "of seven (7) years",
+              "new": "of ten (10) years"
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q003",
+      "question": "What standard governs sanitization of electronic records for disposal?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#6",
+          "title": "Disposal",
+          "rank": 1,
+          "score": 4.9397
+        },
+        {
+          "clause_id": "POL-2025-001#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -2.4128
+        },
+        {
+          "clause_id": "POL-2025-001#2",
+          "title": "Scope",
+          "rank": 3,
+          "score": -8.0729
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#6",
+          "title": "Disposal",
+          "rank": 1,
+          "score": 4.9397
+        },
+        {
+          "clause_id": "POL-2025-001#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -2.4128
+        },
+        {
+          "clause_id": "POL-2025-001#2",
+          "title": "Scope",
+          "rank": 3,
+          "score": -8.0729
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q004",
+      "question": "Who reviews the data retention and security policy each year?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#8",
+          "title": "Review",
+          "rank": 1,
+          "score": 3.6499
+        },
+        {
+          "clause_id": "POL-2025-001#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -2.5249
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": -3.5262
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#8",
+          "title": "Review",
+          "rank": 1,
+          "score": 3.6499
+        },
+        {
+          "clause_id": "POL-2025-001#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -2.5249
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": -3.5262
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q005",
+      "question": "What encryption algorithm protects Confidential data at rest?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 1,
+          "score": 6.6741
+        },
+        {
+          "clause_id": "POL-2025-004#2.4",
+          "title": "Backup Encryption",
+          "rank": 2,
+          "score": -3.0875
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 3,
+          "score": -6.1831
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 1,
+          "score": 6.6741
+        },
+        {
+          "clause_id": "POL-2025-004#2.4",
+          "title": "Backup Encryption",
+          "rank": 2,
+          "score": -3.0875
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 3,
+          "score": -6.1831
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q006",
+      "question": "Which authentication control is required for production systems?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 1,
+          "score": 8.3054
+        },
+        {
+          "clause_id": "POL-2025-007#2.1",
+          "title": "Code Review",
+          "rank": 2,
+          "score": 0.8763
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 3,
+          "score": -3.1817
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 1,
+          "score": 8.3054
+        },
+        {
+          "clause_id": "POL-2025-007#2.1",
+          "title": "Code Review",
+          "rank": 2,
+          "score": 0.8763
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 3,
+          "score": -3.1817
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q007",
+      "question": "What must a vendor sign before dealing with government officials for ACME?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 1,
+          "score": 6.3812
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 2,
+          "score": 2.3825
+        },
+        {
+          "clause_id": "POL-2025-003#4.2",
+          "title": "Subcontractors",
+          "rank": 3,
+          "score": 0.1514
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 1,
+          "score": 6.3812
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 2,
+          "score": 2.3825
+        },
+        {
+          "clause_id": "POL-2025-003#4.2",
+          "title": "Subcontractors",
+          "rank": 3,
+          "score": 0.1514
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q008",
+      "question": "Which group must sit on the review of changes to payment code?",
+      "type": "factual",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#2.1",
+          "title": "Code Review",
+          "rank": 1,
+          "score": 6.685
+        },
+        {
+          "clause_id": "POL-2025-003#3.2",
+          "title": "Financial Review",
+          "rank": 2,
+          "score": -4.1867
+        },
+        {
+          "clause_id": "POL-2025-007#4.2",
+          "title": "Emergency Changes",
+          "rank": 3,
+          "score": -5.7451
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#2.1",
+          "title": "Code Review",
+          "rank": 1,
+          "score": 6.685
+        },
+        {
+          "clause_id": "POL-2025-007#4.2",
+          "title": "Emergency Changes",
+          "rank": 2,
+          "score": -5.7451
+        },
+        {
+          "clause_id": "POL-2025-007#2.1a",
+          "title": "Emergency Changes",
+          "rank": 3,
+          "score": -6.4565
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_removed",
+          "version": "old",
+          "rank": 2,
+          "kind": "removed",
+          "old_id": "POL-2025-003#3.2",
+          "new_id": null,
+          "title": "Financial Review",
+          "similarity": 0.0,
+          "word_changes": []
+        },
+        {
+          "reason": "evidence_added",
+          "version": "new",
+          "rank": 3,
+          "kind": "added",
+          "old_id": null,
+          "new_id": "POL-2025-007#2.1a",
+          "title": "Emergency Changes",
+          "similarity": 0.0,
+          "word_changes": []
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q009",
+      "question": "What do Tier 1 vendors have to provide before signing a contract?",
+      "type": "factual",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#3.1",
+          "title": "Security Assessment",
+          "rank": 1,
+          "score": 9.2594
+        },
+        {
+          "clause_id": "POL-2025-003#3.2",
+          "title": "Financial Review",
+          "rank": 2,
+          "score": 7.2187
+        },
+        {
+          "clause_id": "POL-2025-003#2.1",
+          "title": "Tier Definitions",
+          "rank": 3,
+          "score": 0.4468
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-003#3.1",
+          "title": "Security Assessment",
+          "rank": 1,
+          "score": 9.2594
+        },
+        {
+          "clause_id": "POL-2025-003#2.1",
+          "title": "Tier Definitions",
+          "rank": 2,
+          "score": 0.4468
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": -1.0391
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_removed",
+          "version": "old",
+          "rank": 2,
+          "kind": "removed",
+          "old_id": "POL-2025-003#3.2",
+          "new_id": null,
+          "title": "Financial Review",
+          "similarity": 0.0,
+          "word_changes": []
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Tier 1 vendors must complete the full security questionnaire and provide a current SOC 2 Type II report or ISO 27001 certificate before contract signature. [POL-2025-003#3.1] Procurement must review the financial statements of every Tier 1 vendor before contract signature, and annually thereafter. [POL-2025-003#3.2]",
+        "citations": [
+          "POL-2025-003#3.1",
+          "POL-2025-003#3.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Tier 1 vendors must complete the full security questionnaire and provide a current SOC 2 Type II report or ISO 27001 certificate before contract signature. [POL-2025-003#3.1] Tier 2 vendors complete the short-form questionnaire. [POL-2025-003#3.1]",
+        "citations": [
+          "POL-2025-003#3.1"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q010",
+      "question": "Who is the only person allowed to make external statements during an incident?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#5.2",
+          "title": "Crisis Communication",
+          "rank": 1,
+          "score": 9.3755
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 2,
+          "score": -8.4764
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": -9.6987
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#5.2",
+          "title": "Crisis Communication",
+          "rank": 1,
+          "score": 9.3755
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 2,
+          "score": -8.4764
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": -9.6987
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q011",
+      "question": "What happens to backups of personal data after a deletion request is approved?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 1,
+          "score": 7.6601
+        },
+        {
+          "clause_id": "POL-2025-005#2.2",
+          "title": "Identity Verification",
+          "rank": 2,
+          "score": -1.5696
+        },
+        {
+          "clause_id": "POL-2025-005#4.1",
+          "title": "Access Requests",
+          "rank": 3,
+          "score": -4.8051
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 1,
+          "score": 7.6601
+        },
+        {
+          "clause_id": "POL-2025-005#2.2",
+          "title": "Identity Verification",
+          "rank": 2,
+          "score": -1.5696
+        },
+        {
+          "clause_id": "POL-2025-005#4.1",
+          "title": "Access Requests",
+          "rank": 3,
+          "score": -4.8051
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q012",
+      "question": "What must be installed on a personal phone before it can read company email?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 1,
+          "score": 4.1827
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 2,
+          "score": -5.3721
+        },
+        {
+          "clause_id": "POL-2025-002#3.2",
+          "title": "Public Wi-Fi",
+          "rank": 3,
+          "score": -6.0507
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 1,
+          "score": 4.1827
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 2,
+          "score": -5.3721
+        },
+        {
+          "clause_id": "POL-2025-002#3.2",
+          "title": "Public Wi-Fi",
+          "rank": 3,
+          "score": -6.0507
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q013",
+      "question": "Can company data be accessed on public Wi-Fi?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#3.2",
+          "title": "Public Wi-Fi",
+          "rank": 1,
+          "score": 9.6163
+        },
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 2,
+          "score": -2.6848
+        },
+        {
+          "clause_id": "POL-2025-002#4.1",
+          "title": "Personal Use",
+          "rank": 3,
+          "score": -5.9422
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#3.2",
+          "title": "Public Wi-Fi",
+          "rank": 1,
+          "score": 9.6163
+        },
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 2,
+          "score": -2.6848
+        },
+        {
+          "clause_id": "POL-2025-002#4.1",
+          "title": "Personal Use",
+          "rank": 3,
+          "score": -5.9422
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q014",
+      "question": "Who may raise a vendor's risk tier?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#2.2",
+          "title": "Tier Assignment",
+          "rank": 1,
+          "score": 6.2981
+        },
+        {
+          "clause_id": "POL-2025-003#2.1",
+          "title": "Tier Definitions",
+          "rank": 2,
+          "score": -3.2067
+        },
+        {
+          "clause_id": "POL-2025-003#3.1",
+          "title": "Security Assessment",
+          "rank": 3,
+          "score": -3.3139
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-003#2.2",
+          "title": "Tier Assignment",
+          "rank": 1,
+          "score": 6.2981
+        },
+        {
+          "clause_id": "POL-2025-003#2.1",
+          "title": "Tier Definitions",
+          "rank": 2,
+          "score": -3.2067
+        },
+        {
+          "clause_id": "POL-2025-003#3.1",
+          "title": "Security Assessment",
+          "rank": 3,
+          "score": -3.3139
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q015",
+      "question": "What approval is needed to give a gift to a government official?",
+      "type": "factual",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 1,
+          "score": 7.463
+        },
+        {
+          "clause_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "rank": 2,
+          "score": -5.2451
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 3,
+          "score": -7.1288
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 1,
+          "score": 7.463
+        },
+        {
+          "clause_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "rank": 2,
+          "score": -5.1659
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 3,
+          "score": -7.1288
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 2,
+          "kind": "modified",
+          "old_id": "POL-2025-006#2.1",
+          "new_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "similarity": 0.979,
+          "word_changes": [
+            {
+              "old": "to $75 from",
+              "new": "to $50 from"
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q016",
+      "question": "Who must approve outside employment or board service?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 1,
+          "score": 8.8578
+        },
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 2,
+          "score": -4.9569
+        },
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 3,
+          "score": -5.0552
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 1,
+          "score": 8.8578
+        },
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 2,
+          "score": -4.9569
+        },
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 3,
+          "score": -5.0552
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q017",
+      "question": "What must be done to production data before it is used in test environments?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 1,
+          "score": 5.6825
+        },
+        {
+          "clause_id": "POL-2025-007#5.1",
+          "title": "Separation of Environments",
+          "rank": 2,
+          "score": 2.1371
+        },
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 3,
+          "score": -2.3423
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 1,
+          "score": 5.6825
+        },
+        {
+          "clause_id": "POL-2025-007#5.1",
+          "title": "Separation of Environments",
+          "rank": 2,
+          "score": 2.1371
+        },
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 3,
+          "score": -2.3423
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q018",
+      "question": "Who approves emergency changes outside the normal release schedule?",
+      "type": "factual",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#4.2",
+          "title": "Emergency Changes",
+          "rank": 1,
+          "score": 7.1163
+        },
+        {
+          "clause_id": "POL-2025-007#2.1",
+          "title": "Code Review",
+          "rank": 2,
+          "score": -7.1135
+        },
+        {
+          "clause_id": "POL-2025-004#5.2",
+          "title": "Crisis Communication",
+          "rank": 3,
+          "score": -7.4718
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#4.2",
+          "title": "Emergency Changes",
+          "rank": 1,
+          "score": 7.1163
+        },
+        {
+          "clause_id": "POL-2025-007#2.1a",
+          "title": "Emergency Changes",
+          "rank": 2,
+          "score": 0.2199
+        },
+        {
+          "clause_id": "POL-2025-007#2.1",
+          "title": "Code Review",
+          "rank": 3,
+          "score": -7.1135
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_added",
+          "version": "new",
+          "rank": 2,
+          "kind": "added",
+          "old_id": null,
+          "new_id": "POL-2025-007#2.1a",
+          "title": "Emergency Changes",
+          "similarity": 0.0,
+          "word_changes": []
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Emergency changes may bypass the normal schedule with approval from the VP of Engineering or the on-call incident commander. [POL-2025-007#4.2] Employees are notified through the emergency notification system and the backup phone tree. [POL-2025-004#5.2]",
+        "citations": [
+          "POL-2025-007#4.2",
+          "POL-2025-004#5.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Emergency changes may bypass the normal schedule with approval from the VP of Engineering or the on-call incident commander. [POL-2025-007#4.2] Emergency fixes may be merged with one reviewer if a second review is completed within 24 hours after release. [POL-2025-007#2.1a]",
+        "citations": [
+          "POL-2025-007#4.2",
+          "POL-2025-007#2.1a"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q019",
+      "question": "Where does a suspected breach get reported inside the company?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 1,
+          "score": 5.365
+        },
+        {
+          "clause_id": "POL-2025-001#7",
+          "title": "Compliance Violations",
+          "rank": 2,
+          "score": -1.1108
+        },
+        {
+          "clause_id": "POL-2025-005#5.2",
+          "title": "Individual Notification",
+          "rank": 3,
+          "score": -3.1232
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 1,
+          "score": 5.365
+        },
+        {
+          "clause_id": "POL-2025-001#7",
+          "title": "Compliance Violations",
+          "rank": 2,
+          "score": -1.1108
+        },
+        {
+          "clause_id": "POL-2025-005#5.2",
+          "title": "Individual Notification",
+          "rank": 3,
+          "score": -3.1232
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q020",
+      "question": "Which systems are classed as Tier A for disaster recovery?",
+      "type": "factual",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 1,
+          "score": 6.0261
+        },
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 2,
+          "score": 4.8538
+        },
+        {
+          "clause_id": "POL-2025-004#4.1",
+          "title": "Restore Testing",
+          "rank": 3,
+          "score": 1.1355
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 1,
+          "score": 6.0261
+        },
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 2,
+          "score": 4.8538
+        },
+        {
+          "clause_id": "POL-2025-004#4.1",
+          "title": "Restore Testing",
+          "rank": 3,
+          "score": 1.1355
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q021",
+      "question": "What is the minimum length of a system password?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#4.1",
+          "title": "Password Policy",
+          "rank": 1,
+          "score": 7.783
+        },
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 2,
+          "score": -7.4132
+        },
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 3,
+          "score": -8.9001
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#4.1",
+          "title": "Password Policy",
+          "rank": 1,
+          "score": 7.783
+        },
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 2,
+          "score": -7.4132
+        },
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 3,
+          "score": -8.9001
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q022",
+      "question": "How often must passwords be changed?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#4.1",
+          "title": "Password Policy",
+          "rank": 1,
+          "score": 7.8113
+        },
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 2,
+          "score": 0.6546
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 3,
+          "score": -3.9403
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#4.1",
+          "title": "Password Policy",
+          "rank": 1,
+          "score": 7.8113
+        },
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 2,
+          "score": 0.6546
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 3,
+          "score": -3.9403
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q023",
+      "question": "How long must financial records be retained?",
+      "type": "numeric",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 1,
+          "score": 10.3247
+        },
+        {
+          "clause_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "rank": 2,
+          "score": 5.6881
+        },
+        {
+          "clause_id": "POL-2025-001#3.2",
+          "title": "Employee Records",
+          "rank": 3,
+          "score": 4.4871
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 1,
+          "score": 10.2876
+        },
+        {
+          "clause_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "rank": 2,
+          "score": 5.4322
+        },
+        {
+          "clause_id": "POL-2025-001#3.2",
+          "title": "Employee Records",
+          "rank": 3,
+          "score": 4.4871
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 1,
+          "kind": "modified",
+          "old_id": "POL-2025-001#3.1",
+          "new_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "similarity": 0.95,
+          "word_changes": [
+            {
+              "old": "of seven (7) years",
+              "new": "of ten (10) years"
+            }
+          ]
+        },
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 2,
+          "kind": "modified",
+          "old_id": "POL-2025-004#2.2",
+          "new_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "similarity": 0.947,
+          "word_changes": [
+            {
+              "old": "are retained for",
+              "new": "are kept for"
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "All financial records including general ledgers, accounts payable and receivable, tax filings, and audit reports must be retained for a minimum of seven (7) years from the end of the fiscal year in which they were created. [POL-2025-001#3.1] Month-end backups of financial systems are retained for 12 months. [POL-2025-004#2.2]",
+        "citations": [
+          "POL-2025-001#3.1",
+          "POL-2025-004#2.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "All financial records including general ledgers, accounts payable and receivable, tax filings, and audit reports must be retained for a minimum of ten (10) years from the end of the fiscal year in which they were created. [POL-2025-001#3.1] Month-end backups of financial systems are retained for 12 months. [POL-2025-004#2.2]",
+        "citations": [
+          "POL-2025-001#3.1",
+          "POL-2025-004#2.2"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q024",
+      "question": "Within how many hours must a suspected security incident be reported to Information Security?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 1,
+          "score": 10.1027
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 2,
+          "score": 4.8164
+        },
+        {
+          "clause_id": "POL-2025-005#5.1",
+          "title": "Regulator Notification",
+          "rank": 3,
+          "score": 2.3725
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 1,
+          "score": 10.1027
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 2,
+          "score": 4.8164
+        },
+        {
+          "clause_id": "POL-2025-005#5.1",
+          "title": "Regulator Notification",
+          "rank": 3,
+          "score": 2.3725
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q025",
+      "question": "How long do backups get kept before they expire?",
+      "type": "numeric",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "rank": 1,
+          "score": 6.9943
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 2,
+          "score": 1.3649
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": 0.5922
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "rank": 1,
+          "score": 7.0747
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 2,
+          "score": 1.3649
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": 0.5922
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 1,
+          "kind": "modified",
+          "old_id": "POL-2025-004#2.2",
+          "new_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "similarity": 0.947,
+          "word_changes": [
+            {
+              "old": "are retained for",
+              "new": "are kept for"
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Backups are retained for 35 days. [POL-2025-004#2.2] Month-end backups of financial systems are retained for 12 months. [POL-2025-004#2.2]",
+        "citations": [
+          "POL-2025-004#2.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Backups are kept for 35 days. [POL-2025-004#2.2] Month-end backups of financial systems are retained for 12 months. [POL-2025-004#2.2]",
+        "citations": [
+          "POL-2025-004#2.2"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q026",
+      "question": "What is the recovery point objective for Tier A systems?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 1,
+          "score": 8.6377
+        },
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 2,
+          "score": 0.2318
+        },
+        {
+          "clause_id": "POL-2025-004#4.1",
+          "title": "Restore Testing",
+          "rank": 3,
+          "score": 0.1201
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 1,
+          "score": 8.6377
+        },
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 2,
+          "score": 0.2318
+        },
+        {
+          "clause_id": "POL-2025-004#4.1",
+          "title": "Restore Testing",
+          "rank": 3,
+          "score": 0.1201
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q027",
+      "question": "How frequently are production databases backed up?",
+      "type": "numeric",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#2.1",
+          "title": "Backup Frequency",
+          "rank": 1,
+          "score": 8.7586
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 2,
+          "score": -1.117
+        },
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 3,
+          "score": -5.6377
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#2.1",
+          "title": "Backup Frequency",
+          "rank": 1,
+          "score": 8.7479
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 2,
+          "score": -1.117
+        },
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 3,
+          "score": -5.6377
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 1,
+          "kind": "modified",
+          "old_id": "POL-2025-004#2.1",
+          "new_id": "POL-2025-004#2.1",
+          "title": "Backup Frequency",
+          "similarity": 0.955,
+          "word_changes": [
+            {
+              "old": "every 6 hours.",
+              "new": "every 4 hours."
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Production databases must be backed up every 6 hours. [POL-2025-004#2.1] File servers and collaboration platforms must be backed up daily. [POL-2025-004#2.1]",
+        "citations": [
+          "POL-2025-004#2.1"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Production databases must be backed up every 4 hours. [POL-2025-004#2.1] File servers and collaboration platforms must be backed up daily. [POL-2025-004#2.1]",
+        "citations": [
+          "POL-2025-004#2.1"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q028",
+      "question": "What is the maximum value of a gift an employee may accept from one source per year?",
+      "type": "numeric",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "rank": 1,
+          "score": 8.2975
+        },
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 2,
+          "score": 3.3616
+        },
+        {
+          "clause_id": "POL-2025-006#2.3",
+          "title": "Meals and Entertainment",
+          "rank": 3,
+          "score": -5.2792
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "rank": 1,
+          "score": 8.2272
+        },
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 2,
+          "score": 3.3616
+        },
+        {
+          "clause_id": "POL-2025-006#2.3",
+          "title": "Meals and Entertainment",
+          "rank": 3,
+          "score": -5.2792
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 1,
+          "kind": "modified",
+          "old_id": "POL-2025-006#2.1",
+          "new_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "similarity": 0.979,
+          "word_changes": [
+            {
+              "old": "to $75 from",
+              "new": "to $50 from"
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Employees may accept gifts with a market value of up to $75 from a single source in a calendar year. [POL-2025-006#2.1] Entertainment with an estimated value over $250 per person requires prior approval from the employee's director. [POL-2025-006#2.3]",
+        "citations": [
+          "POL-2025-006#2.1",
+          "POL-2025-006#2.3"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Employees may accept gifts with a market value of up to $50 from a single source in a calendar year. [POL-2025-006#2.1] Entertainment with an estimated value over $250 per person requires prior approval from the employee's director. [POL-2025-006#2.3]",
+        "citations": [
+          "POL-2025-006#2.1",
+          "POL-2025-006#2.3"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q029",
+      "question": "Up to what annual contract value can a department head approve a vendor contract?",
+      "type": "numeric",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 1,
+          "score": 7.534
+        },
+        {
+          "clause_id": "POL-2025-003#6.1",
+          "title": "Vendor File Retention",
+          "rank": 2,
+          "score": -3.4141
+        },
+        {
+          "clause_id": "POL-2025-003#3.2",
+          "title": "Financial Review",
+          "rank": 3,
+          "score": -3.7662
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 1,
+          "score": 7.534
+        },
+        {
+          "clause_id": "POL-2025-003#6.1",
+          "title": "Vendor File Retention",
+          "rank": 2,
+          "score": -3.4141
+        },
+        {
+          "clause_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "rank": 3,
+          "score": -4.788
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_removed",
+          "version": "old",
+          "rank": 3,
+          "kind": "removed",
+          "old_id": "POL-2025-003#3.2",
+          "new_id": null,
+          "title": "Financial Review",
+          "similarity": 0.0,
+          "word_changes": []
+        },
+        {
+          "reason": "evidence_modified",
+          "version": "new",
+          "rank": 3,
+          "kind": "modified",
+          "old_id": "POL-2025-006#2.1",
+          "new_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "similarity": 0.979,
+          "word_changes": [
+            {
+              "old": "to $75 from",
+              "new": "to $50 from"
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Contracts up to $50,000 per year may be approved by a department head. [POL-2025-003#4.3] Procurement must review the financial statements of every Tier 1 vendor before contract signature, and annually thereafter. [POL-2025-003#3.2]",
+        "citations": [
+          "POL-2025-003#4.3",
+          "POL-2025-003#3.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Contracts up to $50,000 per year may be approved by a department head. [POL-2025-003#4.3] Gifts above that value must be declined or handed to the Compliance department. [POL-2025-006#2.1]",
+        "citations": [
+          "POL-2025-003#4.3",
+          "POL-2025-006#2.1"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q030",
+      "question": "How many days do vendors have to return or destroy ACME data after the relationship ends?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 1,
+          "score": 9.8694
+        },
+        {
+          "clause_id": "POL-2025-003#6.1",
+          "title": "Vendor File Retention",
+          "rank": 2,
+          "score": 3.131
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 3,
+          "score": 2.3115
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 1,
+          "score": 9.8694
+        },
+        {
+          "clause_id": "POL-2025-003#6.1",
+          "title": "Vendor File Retention",
+          "rank": 2,
+          "score": 3.131
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 3,
+          "score": 2.3115
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q031",
+      "question": "How quickly must critical vulnerabilities in dependencies be fixed?",
+      "type": "numeric",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#3.1",
+          "title": "Dependency Scanning",
+          "rank": 1,
+          "score": 9.3158
+        },
+        {
+          "clause_id": "POL-2025-004#5.3",
+          "title": "Pandemic and Facility Loss",
+          "rank": 2,
+          "score": -6.077
+        },
+        {
+          "clause_id": "POL-2025-001#5.2",
+          "title": "Escalation Procedure",
+          "rank": 3,
+          "score": -8.6834
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#3.1",
+          "title": "Dependency Scanning",
+          "rank": 1,
+          "score": 9.3158
+        },
+        {
+          "clause_id": "POL-2025-004#5.3",
+          "title": "Pandemic and Facility Loss",
+          "rank": 2,
+          "score": -6.077
+        },
+        {
+          "clause_id": "POL-2025-007#2.1a",
+          "title": "Emergency Changes",
+          "rank": 3,
+          "score": -8.1545
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_added",
+          "version": "new",
+          "rank": 3,
+          "kind": "added",
+          "old_id": null,
+          "new_id": "POL-2025-007#2.1a",
+          "title": "Emergency Changes",
+          "similarity": 0.0,
+          "word_changes": []
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q032",
+      "question": "How many days does ACME have to complete a data subject request?",
+      "type": "numeric",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 1,
+          "score": 8.28
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 2,
+          "score": 5.5049
+        },
+        {
+          "clause_id": "POL-2025-005#4.3",
+          "title": "Opt-Out of Sale or Sharing",
+          "rank": 3,
+          "score": 5.017
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 1,
+          "score": 8.3451
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 2,
+          "score": 5.5049
+        },
+        {
+          "clause_id": "POL-2025-005#4.3",
+          "title": "Opt-Out of Sale or Sharing",
+          "rank": 3,
+          "score": 5.017
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 1,
+          "kind": "modified",
+          "old_id": "POL-2025-005#3.2",
+          "new_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "similarity": 0.951,
+          "word_changes": [
+            {
+              "old": "within 30 calendar",
+              "new": "within 45 calendar"
+            },
+            {
+              "old": "first 30 days.",
+              "new": "first 45 days."
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "ACME must complete the request within 30 calendar days of receipt. [POL-2025-005#3.2] Personal data is deleted from production systems within 30 days of an approved request. [POL-2025-005#4.2]",
+        "citations": [
+          "POL-2025-005#3.2",
+          "POL-2025-005#4.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "ACME must complete the request within 45 calendar days of receipt. [POL-2025-005#3.2] Personal data is deleted from production systems within 30 days of an approved request. [POL-2025-005#4.2]",
+        "citations": [
+          "POL-2025-005#3.2",
+          "POL-2025-005#4.2"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q033",
+      "question": "After how many minutes of inactivity must a company laptop lock?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 1,
+          "score": 9.1831
+        },
+        {
+          "clause_id": "POL-2025-002#6.1",
+          "title": "Return of Assets",
+          "rank": 2,
+          "score": -5.7013
+        },
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 3,
+          "score": -7.2669
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 1,
+          "score": 9.1831
+        },
+        {
+          "clause_id": "POL-2025-002#6.1",
+          "title": "Return of Assets",
+          "rank": 2,
+          "score": -5.7013
+        },
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 3,
+          "score": -7.2669
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q034",
+      "question": "How many hours does a user have to report a lost laptop?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 1,
+          "score": 6.3108
+        },
+        {
+          "clause_id": "POL-2025-004#3.2",
+          "title": "Tier B Systems",
+          "rank": 2,
+          "score": -1.6147
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 3,
+          "score": -3.0613
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 1,
+          "score": 6.3108
+        },
+        {
+          "clause_id": "POL-2025-004#3.2",
+          "title": "Tier B Systems",
+          "rank": 2,
+          "score": -1.6147
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 3,
+          "score": -3.0613
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q035",
+      "question": "How long must the privacy request log be kept?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#7.1",
+          "title": "Request Log",
+          "rank": 1,
+          "score": 8.2371
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 2,
+          "score": 5.4993
+        },
+        {
+          "clause_id": "POL-2025-005#2.1",
+          "title": "Request Channels",
+          "rank": 3,
+          "score": 3.814
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#7.1",
+          "title": "Request Log",
+          "rank": 1,
+          "score": 8.2371
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 2,
+          "score": 5.4993
+        },
+        {
+          "clause_id": "POL-2025-005#2.1",
+          "title": "Request Channels",
+          "rank": 3,
+          "score": 3.814
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q036",
+      "question": "How long is the annual change freeze?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#4.1",
+          "title": "Standard Changes",
+          "rank": 1,
+          "score": 1.8167
+        },
+        {
+          "clause_id": "POL-2025-007#6.1",
+          "title": "Change Records",
+          "rank": 2,
+          "score": -3.1511
+        },
+        {
+          "clause_id": "POL-2025-007#4.2",
+          "title": "Emergency Changes",
+          "rank": 3,
+          "score": -4.8146
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#4.1",
+          "title": "Standard Changes",
+          "rank": 1,
+          "score": 1.8167
+        },
+        {
+          "clause_id": "POL-2025-007#6.1",
+          "title": "Change Records",
+          "rank": 2,
+          "score": -3.1511
+        },
+        {
+          "clause_id": "POL-2025-007#4.2",
+          "title": "Emergency Changes",
+          "rank": 3,
+          "score": -4.8146
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q037",
+      "question": "Within how many hours must the supervisory authority be told about a personal data breach?",
+      "type": "numeric",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#5.1",
+          "title": "Regulator Notification",
+          "rank": 1,
+          "score": 9.946
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 2,
+          "score": 4.4502
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": 2.6493
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#5.1",
+          "title": "Regulator Notification",
+          "rank": 1,
+          "score": 9.946
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 2,
+          "score": 4.4502
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": 2.6493
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q038",
+      "question": "What is the maximum time between discovering a breach of personal data and telling both the internal security team and the regulator?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#5.1",
+          "title": "Regulator Notification",
+          "rank": 1,
+          "score": 3.7837
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 2,
+          "score": 2.9898
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": 1.2275
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#5.1",
+          "title": "Regulator Notification",
+          "rank": 1,
+          "score": 3.7837
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 2,
+          "score": 2.9898
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": 1.2275
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q039",
+      "question": "How long are customer PII records kept versus the log of privacy requests about them?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#3.3",
+          "title": "Customer Data",
+          "rank": 1,
+          "score": 5.4522
+        },
+        {
+          "clause_id": "POL-2025-005#7.1",
+          "title": "Request Log",
+          "rank": 2,
+          "score": 4.2873
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": 0.1027
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#3.3",
+          "title": "Customer Data",
+          "rank": 1,
+          "score": 5.4522
+        },
+        {
+          "clause_id": "POL-2025-005#7.1",
+          "title": "Request Log",
+          "rank": 2,
+          "score": 4.2873
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": 0.1027
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q040",
+      "question": "What encryption applies both to Confidential data in general and to backups?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 1,
+          "score": 4.711
+        },
+        {
+          "clause_id": "POL-2025-004#2.4",
+          "title": "Backup Encryption",
+          "rank": 2,
+          "score": 3.5368
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 3,
+          "score": -6.307
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#4.2",
+          "title": "Encryption",
+          "rank": 1,
+          "score": 4.711
+        },
+        {
+          "clause_id": "POL-2025-004#2.4",
+          "title": "Backup Encryption",
+          "rank": 2,
+          "score": 3.5368
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 3,
+          "score": -6.307
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q041",
+      "question": "If an office becomes unavailable, what must critical-function employees do and what controls apply to their remote access?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#5.3",
+          "title": "Pandemic and Facility Loss",
+          "rank": 1,
+          "score": 6.3975
+        },
+        {
+          "clause_id": "POL-2025-002#3.1",
+          "title": "VPN Requirement",
+          "rank": 2,
+          "score": -4.9946
+        },
+        {
+          "clause_id": "POL-2025-002#1",
+          "title": "Purpose",
+          "rank": 3,
+          "score": -5.3017
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#5.3",
+          "title": "Pandemic and Facility Loss",
+          "rank": 1,
+          "score": 6.3975
+        },
+        {
+          "clause_id": "POL-2025-002#3.1",
+          "title": "VPN Requirement",
+          "rank": 2,
+          "score": -4.9946
+        },
+        {
+          "clause_id": "POL-2025-002#1",
+          "title": "Purpose",
+          "rank": 3,
+          "score": -5.3017
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q042",
+      "question": "How long must financial backups be kept compared with the underlying financial records?",
+      "type": "multi_hop",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 1,
+          "score": 5.7259
+        },
+        {
+          "clause_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "rank": 2,
+          "score": 5.2958
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": -0.4542
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 1,
+          "score": 5.6888
+        },
+        {
+          "clause_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "rank": 2,
+          "score": 5.5202
+        },
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 3,
+          "score": -0.4542
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 1,
+          "kind": "modified",
+          "old_id": "POL-2025-001#3.1",
+          "new_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "similarity": 0.95,
+          "word_changes": [
+            {
+              "old": "of seven (7) years",
+              "new": "of ten (10) years"
+            }
+          ]
+        },
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 2,
+          "kind": "modified",
+          "old_id": "POL-2025-004#2.2",
+          "new_id": "POL-2025-004#2.2",
+          "title": "Backup Retention",
+          "similarity": 0.947,
+          "word_changes": [
+            {
+              "old": "are retained for",
+              "new": "are kept for"
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "All financial records including general ledgers, accounts payable and receivable, tax filings, and audit reports must be retained for a minimum of seven (7) years from the end of the fiscal year in which they were created. [POL-2025-001#3.1] Month-end backups of financial systems are retained for 12 months. [POL-2025-004#2.2]",
+        "citations": [
+          "POL-2025-001#3.1",
+          "POL-2025-004#2.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Backups are kept for 35 days. [POL-2025-004#2.2] Month-end backups of financial systems are retained for 12 months. [POL-2025-004#2.2]",
+        "citations": [
+          "POL-2025-004#2.2"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q043",
+      "question": "When a vendor handling personal data has an incident, how soon must it tell ACME, and how soon must ACME tell the regulator?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 1,
+          "score": 5.5157
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 2,
+          "score": 3.2441
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 3,
+          "score": 3.1872
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 1,
+          "score": 5.5157
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 2,
+          "score": 3.2441
+        },
+        {
+          "clause_id": "POL-2025-001#5.1",
+          "title": "Reporting",
+          "rank": 3,
+          "score": 3.1872
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q044",
+      "question": "What restriction applies to an employee whose relative is involved in a contract decision, and who must approve contracts above $250,000 a year?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 1,
+          "score": 2.3516
+        },
+        {
+          "clause_id": "POL-2025-006#4.3",
+          "title": "Family Relationships",
+          "rank": 2,
+          "score": -1.7703
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -4.2611
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 1,
+          "score": 2.3516
+        },
+        {
+          "clause_id": "POL-2025-006#4.3",
+          "title": "Family Relationships",
+          "rank": 2,
+          "score": -1.7703
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -4.2611
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q045",
+      "question": "How long are security logs and change records each retained?",
+      "type": "multi_hop",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 1,
+          "score": 7.7121
+        },
+        {
+          "clause_id": "POL-2025-007#6.1",
+          "title": "Change Records",
+          "rank": 2,
+          "score": 3.4977
+        },
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 3,
+          "score": 2.3718
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#6.1",
+          "title": "Log Retention",
+          "rank": 1,
+          "score": 7.7121
+        },
+        {
+          "clause_id": "POL-2025-007#6.1",
+          "title": "Change Records",
+          "rank": 2,
+          "score": 3.4977
+        },
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 3,
+          "score": 2.2401
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 3,
+          "kind": "modified",
+          "old_id": "POL-2025-001#3.1",
+          "new_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "similarity": 0.95,
+          "word_changes": [
+            {
+              "old": "of seven (7) years",
+              "new": "of ten (10) years"
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q046",
+      "question": "What happens to a departing employee's account and when must their laptop be returned?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#6.1",
+          "title": "Return of Assets",
+          "rank": 1,
+          "score": 2.2874
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 2,
+          "score": -2.8181
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 3,
+          "score": -6.0187
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#6.1",
+          "title": "Return of Assets",
+          "rank": 1,
+          "score": 2.2874
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 2,
+          "score": -2.8181
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 3,
+          "score": -6.0187
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q047",
+      "question": "Can source code containing personal data be pasted into a public AI chatbot, and what should be done with such production data in test?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#4.3",
+          "title": "Generative AI Tools",
+          "rank": 1,
+          "score": 2.113
+        },
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 2,
+          "score": 1.9784
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 3,
+          "score": -4.6751
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#4.3",
+          "title": "Generative AI Tools",
+          "rank": 1,
+          "score": 2.113
+        },
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 2,
+          "score": 1.9784
+        },
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 3,
+          "score": -4.6751
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q048",
+      "question": "How often must the Tier A restore be tested and how often is the full disaster recovery exercise held?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 1,
+          "score": 6.7979
+        },
+        {
+          "clause_id": "POL-2025-004#4.1",
+          "title": "Restore Testing",
+          "rank": 2,
+          "score": 5.0297
+        },
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 3,
+          "score": 1.8607
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 1,
+          "score": 6.7979
+        },
+        {
+          "clause_id": "POL-2025-004#4.1",
+          "title": "Restore Testing",
+          "rank": 2,
+          "score": 5.0297
+        },
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 3,
+          "score": 1.8607
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q049",
+      "question": "Which two departments must jointly approve work from a country not on the approved list?",
+      "type": "multi_hop",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 1,
+          "score": 3.3888
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 2,
+          "score": -3.865
+        },
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 3,
+          "score": -5.4516
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 1,
+          "score": 3.3888
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 2,
+          "score": -3.865
+        },
+        {
+          "clause_id": "POL-2025-003#4.3",
+          "title": "Contract Approval Thresholds",
+          "rank": 3,
+          "score": -5.4516
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q050",
+      "question": "Are USB storage devices allowed by default?",
+      "type": "negation",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#2.3",
+          "title": "Removable Media",
+          "rank": 1,
+          "score": 9.7494
+        },
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 2,
+          "score": -5.9807
+        },
+        {
+          "clause_id": "POL-2025-002#4.1",
+          "title": "Personal Use",
+          "rank": 3,
+          "score": -8.6837
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#2.3",
+          "title": "Removable Media",
+          "rank": 1,
+          "score": 9.7494
+        },
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 2,
+          "score": -5.9807
+        },
+        {
+          "clause_id": "POL-2025-002#4.1",
+          "title": "Personal Use",
+          "rank": 3,
+          "score": -8.6837
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q051",
+      "question": "Can an employee accept a gift card from a supplier?",
+      "type": "negation",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "rank": 1,
+          "score": 5.3796
+        },
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 2,
+          "score": -5.4512
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -5.778
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "rank": 1,
+          "score": 5.4179
+        },
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 2,
+          "score": -5.4512
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -5.778
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 1,
+          "kind": "modified",
+          "old_id": "POL-2025-006#2.1",
+          "new_id": "POL-2025-006#2.1",
+          "title": "Gifts Received",
+          "similarity": 0.979,
+          "word_changes": [
+            {
+              "old": "to $75 from",
+              "new": "to $50 from"
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Employees may accept gifts with a market value of up to $75 from a single source in a calendar year. [POL-2025-006#2.1] Cash and cash equivalents, such as gift cards, may never be accepted. [POL-2025-006#2.1]",
+        "citations": [
+          "POL-2025-006#2.1"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Employees may accept gifts with a market value of up to $50 from a single source in a calendar year. [POL-2025-006#2.1] Cash and cash equivalents, such as gift cards, may never be accepted. [POL-2025-006#2.1]",
+        "citations": [
+          "POL-2025-006#2.1"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q052",
+      "question": "Is ACME allowed to sell personal data?",
+      "type": "negation",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#4.3",
+          "title": "Opt-Out of Sale or Sharing",
+          "rank": 1,
+          "score": 9.2348
+        },
+        {
+          "clause_id": "POL-2025-005#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": 5.5016
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": 4.7758
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#4.3",
+          "title": "Opt-Out of Sale or Sharing",
+          "rank": 1,
+          "score": 9.2348
+        },
+        {
+          "clause_id": "POL-2025-005#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": 5.5016
+        },
+        {
+          "clause_id": "POL-2025-003#4.1",
+          "title": "Mandatory Clauses",
+          "rank": 3,
+          "score": 4.7758
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q053",
+      "question": "May developers commit directly to the main branch?",
+      "type": "negation",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#2.2",
+          "title": "Branch Protection",
+          "rank": 1,
+          "score": 5.4367
+        },
+        {
+          "clause_id": "POL-2025-007#2.3",
+          "title": "Secrets in Code",
+          "rank": 2,
+          "score": -9.4308
+        },
+        {
+          "clause_id": "POL-2025-006#4.3",
+          "title": "Family Relationships",
+          "rank": 3,
+          "score": -10.2115
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#2.2",
+          "title": "Branch Protection",
+          "rank": 1,
+          "score": 5.4367
+        },
+        {
+          "clause_id": "POL-2025-007#2.3",
+          "title": "Secrets in Code",
+          "rank": 2,
+          "score": -9.4308
+        },
+        {
+          "clause_id": "POL-2025-006#4.3",
+          "title": "Family Relationships",
+          "rank": 3,
+          "score": -10.2115
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q054",
+      "question": "Are facilitation payments to government officials ever permitted?",
+      "type": "negation",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#3.1",
+          "title": "Facilitation Payments",
+          "rank": 1,
+          "score": 5.8768
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 2,
+          "score": -6.0468
+        },
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 3,
+          "score": -7.3613
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#3.1",
+          "title": "Facilitation Payments",
+          "rank": 1,
+          "score": 5.8768
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 2,
+          "score": -6.0468
+        },
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 3,
+          "score": -7.3613
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q055",
+      "question": "Can a Tier 3 vendor be reassessed on a regular cycle?",
+      "type": "negation",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#3.3",
+          "title": "Reassessment Cycle",
+          "rank": 1,
+          "score": 7.9755
+        },
+        {
+          "clause_id": "POL-2025-003#2.1",
+          "title": "Tier Definitions",
+          "rank": 2,
+          "score": -1.3785
+        },
+        {
+          "clause_id": "POL-2025-003#3.1",
+          "title": "Security Assessment",
+          "rank": 3,
+          "score": -2.723
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-003#3.3",
+          "title": "Reassessment Cycle",
+          "rank": 1,
+          "score": 7.9755
+        },
+        {
+          "clause_id": "POL-2025-003#2.1",
+          "title": "Tier Definitions",
+          "rank": 2,
+          "score": -1.3785
+        },
+        {
+          "clause_id": "POL-2025-003#3.1",
+          "title": "Security Assessment",
+          "rank": 3,
+          "score": -2.723
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q056",
+      "question": "Is a fee charged for a data subject access request?",
+      "type": "negation",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#3.3",
+          "title": "Fees",
+          "rank": 1,
+          "score": 5.1123
+        },
+        {
+          "clause_id": "POL-2025-005#4.1",
+          "title": "Access Requests",
+          "rank": 2,
+          "score": -2.1491
+        },
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 3,
+          "score": -2.6306
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#3.3",
+          "title": "Fees",
+          "rank": 1,
+          "score": 5.1123
+        },
+        {
+          "clause_id": "POL-2025-005#4.1",
+          "title": "Access Requests",
+          "rank": 2,
+          "score": -2.1491
+        },
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 3,
+          "score": -2.6306
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q057",
+      "question": "May a personal laptop connect to production systems?",
+      "type": "negation",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 1,
+          "score": 8.2332
+        },
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 2,
+          "score": -4.8291
+        },
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 3,
+          "score": -5.6248
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#2.2",
+          "title": "Personal Devices (BYOD)",
+          "rank": 1,
+          "score": 8.2332
+        },
+        {
+          "clause_id": "POL-2025-007#5.2",
+          "title": "Production Data in Testing",
+          "rank": 2,
+          "score": -4.8291
+        },
+        {
+          "clause_id": "POL-2025-001#4.3",
+          "title": "Access Control",
+          "rank": 3,
+          "score": -5.6248
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q058",
+      "question": "How long can my work-from-abroad stretch last in a year?",
+      "type": "paraphrase",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 1,
+          "score": -0.5395
+        },
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 2,
+          "score": -7.0002
+        },
+        {
+          "clause_id": "POL-2025-001#3.2",
+          "title": "Employee Records",
+          "rank": 3,
+          "score": -7.1239
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 1,
+          "score": -0.5395
+        },
+        {
+          "clause_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "rank": 2,
+          "score": -7.1123
+        },
+        {
+          "clause_id": "POL-2025-001#3.2",
+          "title": "Employee Records",
+          "rank": 3,
+          "score": -7.1239
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 2,
+          "kind": "modified",
+          "old_id": "POL-2025-001#3.1",
+          "new_id": "POL-2025-001#3.1",
+          "title": "Financial Records",
+          "similarity": 0.95,
+          "word_changes": [
+            {
+              "old": "of seven (7) years",
+              "new": "of ten (10) years"
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q059",
+      "question": "What's the cap on what I can spend entertaining one client before my director must sign off?",
+      "type": "paraphrase",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#2.3",
+          "title": "Meals and Entertainment",
+          "rank": 1,
+          "score": -8.5444
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 2,
+          "score": -10.1772
+        },
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 3,
+          "score": -10.9391
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#2.3",
+          "title": "Meals and Entertainment",
+          "rank": 1,
+          "score": -8.5444
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 2,
+          "score": -10.1772
+        },
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 3,
+          "score": -10.9391
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q060",
+      "question": "What qualifies a person as having been correctly identified before ACME hands over their records?",
+      "type": "paraphrase",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 1,
+          "score": -4.5677
+        },
+        {
+          "clause_id": "POL-2025-005#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -4.5857
+        },
+        {
+          "clause_id": "POL-2025-005#6.1",
+          "title": "Minimum Age",
+          "rank": 3,
+          "score": -4.9867
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 1,
+          "score": -4.5677
+        },
+        {
+          "clause_id": "POL-2025-005#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -4.5857
+        },
+        {
+          "clause_id": "POL-2025-005#6.1",
+          "title": "Minimum Age",
+          "rank": 3,
+          "score": -4.9867
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q061",
+      "question": "How soon do I need to flag a possible conflict of interest?",
+      "type": "paraphrase",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 1,
+          "score": 3.6156
+        },
+        {
+          "clause_id": "POL-2025-005#3.1",
+          "title": "Acknowledgement",
+          "rank": 2,
+          "score": -6.5827
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 3,
+          "score": -7.1959
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 1,
+          "score": 3.6156
+        },
+        {
+          "clause_id": "POL-2025-005#3.1",
+          "title": "Acknowledgement",
+          "rank": 2,
+          "score": -6.5827
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 3,
+          "score": -7.2103
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 3,
+          "kind": "modified",
+          "old_id": "POL-2025-005#3.2",
+          "new_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "similarity": 0.951,
+          "word_changes": [
+            {
+              "old": "within 30 calendar",
+              "new": "within 45 calendar"
+            },
+            {
+              "old": "first 30 days.",
+              "new": "first 45 days."
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q062",
+      "question": "How fast must a leaked API key be replaced?",
+      "type": "paraphrase",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#2.3",
+          "title": "Secrets in Code",
+          "rank": 1,
+          "score": 1.4079
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 2,
+          "score": -4.9739
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 3,
+          "score": -5.5478
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#2.3",
+          "title": "Secrets in Code",
+          "rank": 1,
+          "score": 1.4079
+        },
+        {
+          "clause_id": "POL-2025-002#2.1",
+          "title": "Company-Issued Laptops",
+          "rank": 2,
+          "score": -4.9739
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 3,
+          "score": -5.6904
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 3,
+          "kind": "modified",
+          "old_id": "POL-2025-005#3.2",
+          "new_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "similarity": 0.951,
+          "word_changes": [
+            {
+              "old": "within 30 calendar",
+              "new": "within 45 calendar"
+            },
+            {
+              "old": "first 30 days.",
+              "new": "first 45 days."
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q063",
+      "question": "How many past passwords am I blocked from picking again?",
+      "type": "paraphrase",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-001#4.1",
+          "title": "Password Policy",
+          "rank": 1,
+          "score": -4.2665
+        },
+        {
+          "clause_id": "POL-2025-002#2.3",
+          "title": "Removable Media",
+          "rank": 2,
+          "score": -7.7774
+        },
+        {
+          "clause_id": "POL-2025-005#7.1",
+          "title": "Request Log",
+          "rank": 3,
+          "score": -10.5372
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-001#4.1",
+          "title": "Password Policy",
+          "rank": 1,
+          "score": -4.2665
+        },
+        {
+          "clause_id": "POL-2025-002#2.3",
+          "title": "Removable Media",
+          "rank": 2,
+          "score": -7.7774
+        },
+        {
+          "clause_id": "POL-2025-005#7.1",
+          "title": "Request Log",
+          "rank": 3,
+          "score": -10.5372
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q064",
+      "question": "What is the target time to get the customer portal running again after an outage?",
+      "type": "paraphrase",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 1,
+          "score": -0.0196
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 2,
+          "score": -7.0882
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 3,
+          "score": -7.6775
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#3.1",
+          "title": "Tier A Systems",
+          "rank": 1,
+          "score": -0.0196
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 2,
+          "score": -7.1685
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 3,
+          "score": -7.6775
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 2,
+          "kind": "modified",
+          "old_id": "POL-2025-005#3.2",
+          "new_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "similarity": 0.951,
+          "word_changes": [
+            {
+              "old": "within 30 calendar",
+              "new": "within 45 calendar"
+            },
+            {
+              "old": "first 30 days.",
+              "new": "first 45 days."
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q065",
+      "question": "How often do I need to redo anti-corruption training?",
+      "type": "paraphrase",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#6.2",
+          "title": "Training",
+          "rank": 1,
+          "score": 7.2515
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 2,
+          "score": 2.581
+        },
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 3,
+          "score": -6.8103
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#6.2",
+          "title": "Training",
+          "rank": 1,
+          "score": 7.2515
+        },
+        {
+          "clause_id": "POL-2025-006#3.2",
+          "title": "Third-Party Intermediaries",
+          "rank": 2,
+          "score": 2.581
+        },
+        {
+          "clause_id": "POL-2025-004#4.2",
+          "title": "Disaster Recovery Exercises",
+          "rank": 3,
+          "score": -6.8103
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q066",
+      "question": "How soon after a deletion request is approved does ACME wipe the data from live systems?",
+      "type": "paraphrase",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 1,
+          "score": 7.2077
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 2,
+          "score": 3.0155
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 3,
+          "score": 2.5906
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 1,
+          "score": 7.2077
+        },
+        {
+          "clause_id": "POL-2025-003#5.1",
+          "title": "Data Return and Destruction",
+          "rank": 2,
+          "score": 3.0155
+        },
+        {
+          "clause_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "rank": 3,
+          "score": 2.618
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 3,
+          "kind": "modified",
+          "old_id": "POL-2025-005#3.2",
+          "new_id": "POL-2025-005#3.2",
+          "title": "Response Time",
+          "similarity": 0.951,
+          "word_changes": [
+            {
+              "old": "within 30 calendar",
+              "new": "within 45 calendar"
+            },
+            {
+              "old": "first 30 days.",
+              "new": "first 45 days."
+            }
+          ]
+        }
+      ],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q067",
+      "question": "Which hours am I allowed to push standard releases to production?",
+      "type": "paraphrase",
+      "severity": "medium",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-007#4.1",
+          "title": "Standard Changes",
+          "rank": 1,
+          "score": 4.9889
+        },
+        {
+          "clause_id": "POL-2025-004#2.1",
+          "title": "Backup Frequency",
+          "rank": 2,
+          "score": -3.8703
+        },
+        {
+          "clause_id": "POL-2025-007#4.3",
+          "title": "Rollback",
+          "rank": 3,
+          "score": -6.9462
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-007#4.1",
+          "title": "Standard Changes",
+          "rank": 1,
+          "score": 4.9889
+        },
+        {
+          "clause_id": "POL-2025-004#2.1",
+          "title": "Backup Frequency",
+          "rank": 2,
+          "score": -3.7979
+        },
+        {
+          "clause_id": "POL-2025-007#4.3",
+          "title": "Rollback",
+          "rank": 3,
+          "score": -6.9462
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_modified",
+          "version": "old",
+          "rank": 2,
+          "kind": "modified",
+          "old_id": "POL-2025-004#2.1",
+          "new_id": "POL-2025-004#2.1",
+          "title": "Backup Frequency",
+          "similarity": 0.955,
+          "word_changes": [
+            {
+              "old": "every 6 hours.",
+              "new": "every 4 hours."
+            }
+          ]
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Standard changes to production are deployed only on weekdays between 6 a.m. [POL-2025-007#4.1] Production databases must be backed up every 6 hours. [POL-2025-004#2.1]",
+        "citations": [
+          "POL-2025-007#4.1",
+          "POL-2025-004#2.1"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Standard changes to production are deployed only on weekdays between 6 a.m. [POL-2025-007#4.1] Production databases must be backed up every 4 hours. [POL-2025-004#2.1]",
+        "citations": [
+          "POL-2025-007#4.1",
+          "POL-2025-004#2.1"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q068",
+      "question": "What does an employee do if someone emails them a privacy request?",
+      "type": "paraphrase",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#2.1",
+          "title": "Request Channels",
+          "rank": 1,
+          "score": 4.4148
+        },
+        {
+          "clause_id": "POL-2025-002#5.1",
+          "title": "Monitoring Notice",
+          "rank": 2,
+          "score": -0.8786
+        },
+        {
+          "clause_id": "POL-2025-005#2.2",
+          "title": "Identity Verification",
+          "rank": 3,
+          "score": -2.1812
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#2.1",
+          "title": "Request Channels",
+          "rank": 1,
+          "score": 4.4148
+        },
+        {
+          "clause_id": "POL-2025-002#5.1",
+          "title": "Monitoring Notice",
+          "rank": 2,
+          "score": -0.8786
+        },
+        {
+          "clause_id": "POL-2025-005#2.2",
+          "title": "Identity Verification",
+          "rank": 3,
+          "score": -2.1812
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q069",
+      "question": "What is ACME's paid parental leave entitlement?",
+      "type": "not_covered",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#6.1",
+          "title": "Minimum Age",
+          "rank": 1,
+          "score": -3.3097
+        },
+        {
+          "clause_id": "POL-2025-006#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -4.9071
+        },
+        {
+          "clause_id": "POL-2025-005#1",
+          "title": "Purpose",
+          "rank": 3,
+          "score": -5.6109
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#6.1",
+          "title": "Minimum Age",
+          "rank": 1,
+          "score": -3.3097
+        },
+        {
+          "clause_id": "POL-2025-006#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -4.9071
+        },
+        {
+          "clause_id": "POL-2025-005#1",
+          "title": "Purpose",
+          "rank": 3,
+          "score": -5.6109
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q070",
+      "question": "How many vacation days do employees accrue per year?",
+      "type": "not_covered",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 1,
+          "score": -0.4036
+        },
+        {
+          "clause_id": "POL-2025-006#6.2",
+          "title": "Training",
+          "rank": 2,
+          "score": -6.6304
+        },
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 3,
+          "score": -8.2648
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#3.3",
+          "title": "Remote Work Locations",
+          "rank": 1,
+          "score": -0.4036
+        },
+        {
+          "clause_id": "POL-2025-006#6.2",
+          "title": "Training",
+          "rank": 2,
+          "score": -6.6304
+        },
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 3,
+          "score": -8.2648
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q071",
+      "question": "What is the reimbursement limit for airline tickets on business travel?",
+      "type": "not_covered",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 1,
+          "score": -9.0742
+        },
+        {
+          "clause_id": "POL-2025-006#2.3",
+          "title": "Meals and Entertainment",
+          "rank": 2,
+          "score": -9.4131
+        },
+        {
+          "clause_id": "POL-2025-001#3.3",
+          "title": "Customer Data",
+          "rank": 3,
+          "score": -9.6501
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-006#2.2",
+          "title": "Gifts Given",
+          "rank": 1,
+          "score": -9.0742
+        },
+        {
+          "clause_id": "POL-2025-006#2.3",
+          "title": "Meals and Entertainment",
+          "rank": 2,
+          "score": -9.4131
+        },
+        {
+          "clause_id": "POL-2025-001#3.3",
+          "title": "Customer Data",
+          "rank": 3,
+          "score": -9.6501
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q072",
+      "question": "What is the process for requesting a salary review?",
+      "type": "not_covered",
+      "severity": "high",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-003#3.2",
+          "title": "Financial Review",
+          "rank": 1,
+          "score": -5.9442
+        },
+        {
+          "clause_id": "POL-2025-005#3.1",
+          "title": "Acknowledgement",
+          "rank": 2,
+          "score": -6.9656
+        },
+        {
+          "clause_id": "POL-2025-005#2.1",
+          "title": "Request Channels",
+          "rank": 3,
+          "score": -7.6492
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#3.1",
+          "title": "Acknowledgement",
+          "rank": 1,
+          "score": -6.9656
+        },
+        {
+          "clause_id": "POL-2025-005#2.1",
+          "title": "Request Channels",
+          "rank": 2,
+          "score": -7.6492
+        },
+        {
+          "clause_id": "POL-2025-007#2.1",
+          "title": "Code Review",
+          "rank": 3,
+          "score": -7.8435
+        }
+      ],
+      "reasons": [
+        {
+          "reason": "evidence_removed",
+          "version": "old",
+          "rank": 1,
+          "kind": "removed",
+          "old_id": "POL-2025-003#3.2",
+          "new_id": null,
+          "title": "Financial Review",
+          "similarity": 0.0,
+          "word_changes": []
+        }
+      ],
+      "answer_changed": true,
+      "likely_affected": true,
+      "answer_old": {
+        "text": "Procurement must review the financial statements of every Tier 1 vendor before contract signature, and annually thereafter. [POL-2025-003#3.2]",
+        "citations": [
+          "POL-2025-003#3.2"
+        ],
+        "mode": "extractive"
+      },
+      "answer_new": {
+        "text": "Every request must be acknowledged in writing within 5 business days. [POL-2025-005#3.1] Requests may be submitted through the privacy web form, by email to privacy@acme.example.com, or by phone. [POL-2025-005#2.1]",
+        "citations": [
+          "POL-2025-005#3.1",
+          "POL-2025-005#2.1"
+        ],
+        "mode": "extractive"
+      }
+    },
+    {
+      "id": "q073",
+      "question": "Which cloud provider hosts ACME's production workloads?",
+      "type": "not_covered",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 1,
+          "score": -3.7505
+        },
+        {
+          "clause_id": "POL-2025-003#4.2",
+          "title": "Subcontractors",
+          "rank": 2,
+          "score": -3.8893
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -4.6774
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-005#4.2",
+          "title": "Deletion Requests",
+          "rank": 1,
+          "score": -3.7505
+        },
+        {
+          "clause_id": "POL-2025-003#4.2",
+          "title": "Subcontractors",
+          "rank": 2,
+          "score": -3.8893
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -4.6774
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q074",
+      "question": "What is the dress code policy for office days?",
+      "type": "not_covered",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-004#5.3",
+          "title": "Pandemic and Facility Loss",
+          "rank": 1,
+          "score": -5.7425
+        },
+        {
+          "clause_id": "POL-2025-002#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -7.7756
+        },
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 3,
+          "score": -9.3839
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-004#5.3",
+          "title": "Pandemic and Facility Loss",
+          "rank": 1,
+          "score": -5.7425
+        },
+        {
+          "clause_id": "POL-2025-002#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -7.7756
+        },
+        {
+          "clause_id": "POL-2025-006#4.1",
+          "title": "Disclosure",
+          "rank": 3,
+          "score": -9.3839
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q075",
+      "question": "How does ACME handle employee stock option vesting?",
+      "type": "not_covered",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#5.1",
+          "title": "Monitoring Notice",
+          "rank": 1,
+          "score": -0.7388
+        },
+        {
+          "clause_id": "POL-2025-006#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -1.4384
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -1.5934
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#5.1",
+          "title": "Monitoring Notice",
+          "rank": 1,
+          "score": -0.7388
+        },
+        {
+          "clause_id": "POL-2025-006#1",
+          "title": "Purpose",
+          "rank": 2,
+          "score": -1.4384
+        },
+        {
+          "clause_id": "POL-2025-006#4.2",
+          "title": "Outside Employment",
+          "rank": 3,
+          "score": -1.5934
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    },
+    {
+      "id": "q076",
+      "question": "What is the corporate policy on workplace parking?",
+      "type": "not_covered",
+      "severity": "none",
+      "evidence_old": [
+        {
+          "clause_id": "POL-2025-002#1",
+          "title": "Purpose",
+          "rank": 1,
+          "score": -3.5052
+        },
+        {
+          "clause_id": "POL-2025-001#2",
+          "title": "Scope",
+          "rank": 2,
+          "score": -4.068
+        },
+        {
+          "clause_id": "POL-2025-001#1",
+          "title": "Purpose",
+          "rank": 3,
+          "score": -5.5638
+        }
+      ],
+      "evidence_new": [
+        {
+          "clause_id": "POL-2025-002#1",
+          "title": "Purpose",
+          "rank": 1,
+          "score": -3.5052
+        },
+        {
+          "clause_id": "POL-2025-001#2",
+          "title": "Scope",
+          "rank": 2,
+          "score": -4.068
+        },
+        {
+          "clause_id": "POL-2025-001#1",
+          "title": "Purpose",
+          "rank": 3,
+          "score": -5.5638
+        }
+      ],
+      "reasons": [],
+      "answer_changed": false,
+      "likely_affected": false
+    }
+  ],
+  "gold_oracle_eval": {
+    "n_answerable": 68,
+    "tp": 6,
+    "fp": 5,
+    "fn": 0,
+    "tn": 57,
+    "precision": 0.545,
+    "recall": 1.0
+  }
+}

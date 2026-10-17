@@ -1,0 +1,93 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lint-type:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install ruff mypy pydantic pydantic-settings fastapi httpx numpy
+      - run: ruff check src/impact tests/test_impact.py scripts/make_v2_corpus.py space
+      - run: ruff format --check src/impact tests/test_impact.py scripts/make_v2_corpus.py
+      - run: mypy src/impact
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      # Tests are mocked; no torch / sentence-transformers / spaCy models needed.
+      - run: pip install pytest pytest-cov "numpy<2" faiss-cpu rank-bm25 pydantic pydantic-settings python-dotenv tiktoken fastapi httpx loguru PyPDF2 pdfplumber python-docx prometheus_client
+      - run: PYTHONPATH=. pytest tests -q --cov=src/impact --cov-report=term --cov-report=xml --cov-fail-under=90
+      - uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.12'
+        with:
+          name: coverage-xml
+          path: coverage.xml
+  real-models:
+    # Runs the impact evaluation with the real MiniLM embedder + cross-encoder (CPU) and
+    # checks that the v1 -> v2 diff and the gold-oracle recall hold.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install -r requirements-impact.txt
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-minilm-v1
+      - name: Impact evaluation
+        run: |
+          python -m src.impact.cli impact --backend sentence-transformers --rerank --k 2 --score-vs-gold --json impact.json | tee impact.md
+          python - <<'PY'
+          import json
+          r = json.load(open("impact.json"))
+          assert r["summary"]["clauses"]["modified"] == 5, r["summary"]
+          g = r["gold_oracle_eval"]
+          print(g)
+          assert g["recall"] >= 0.8, g
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: impact-report
+          path: impact.json
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          load: true
+          tags: polirag-impact:ci
+          build-args: PRELOAD_MODELS=0
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Container is healthy and answers an impact request
+        run: |
+          docker run -d --name svc -p 8080:8080 -e EMBEDDING_BACKEND=hashing polirag-impact:ci
+          for i in $(seq 1 30); do curl -fs localhost:8080/healthz && break; sleep 2; done
+          curl -fs localhost:8080/readyz
+          curl -fs -X POST localhost:8080/v1/impact -H 'content-type: application/json' \
+            -d '{"old":{"version":"v1"},"new":{"version":"v2"}}' | python3 -c "import json,sys; r=json.load(sys.stdin); print(r['summary']); assert r['summary']['clauses']['modified']==5"
+          docker logs svc | tail -5

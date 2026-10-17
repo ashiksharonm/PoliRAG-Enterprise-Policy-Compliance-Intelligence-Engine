@@ -1,6 +1,6 @@
 # 🛡️ PoliRAG — Enterprise Policy & Compliance Intelligence Engine
 
-> **A production-grade RAG system for enterprise compliance, policy reasoning, and audit-safe AI.**
+> **Policy RAG with change-impact analysis: when a policy is revised, which answers change, and which clauses prove it.**
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)](https://fastapi.tiangolo.com/)
@@ -15,15 +15,57 @@
 
 ---
 
+## Policy change impact analysis
+
+Give PoliRAG two versions of a policy set. It diffs them **at clause level** (modified / added / removed / renumbered, with the changed words), retrieves evidence for every question in **both** versions, and reports **which answers are likely affected**, citing clause IDs such as `POL-2025-005#3.2`. Answers are extractive by default (sentences copied from cited clauses, no LLM); set `GROQ_API_KEY` or `GEMINI_API_KEY` (free tiers) for generated answers whose citations are validated and fall back to extractive when invalid.
+
+```mermaid
+flowchart LR
+  v1[policy v1] --> p1[clause parser] --> i1[hybrid index v1]
+  v2[policy v2] --> p2[clause parser] --> i2[hybrid index v2]
+  p1 --> d[clause diff]
+  p2 --> d
+  q[questions] --> i1 --> e1[evidence v1]
+  q --> i2 --> e2[evidence v2]
+  d --> a[impact analysis]
+  e1 --> a
+  e2 --> a
+  a --> r[affected answers + cited clauses]
+```
+
+### Quickstart
+
+```bash
+pip install -r requirements-impact.txt            # CPU; MiniLM (~90 MB) downloads on first use
+python -m src.impact.cli impact --score-vs-gold   # bundled v1 vs synthetic v2, 76 gold questions
+uvicorn src.impact.service:create_app --factory --port 8080   # or: docker compose up
+```
+
+`curl -X POST localhost:8080/v1/impact -H 'content-type: application/json' -d '{"old":{"version":"v1"},"new":{"version":"v2"}}'`. Endpoints: `GET /healthz`, `GET /readyz`, `GET /v1/versions`, `POST /v1/diff`, `POST /v1/impact`, `POST /v1/ask` (optional `X-API-Key`, `X-Request-ID` echoed). Design, data model and failure modes: [docs/DESIGN.md](docs/DESIGN.md). A Gradio demo for Hugging Face Spaces is in [`space/`](space).
+
+### Measured results (synthetic edits)
+
+v2 is built by [`scripts/make_v2_corpus.py`](scripts/make_v2_corpus.py): 5 modified clauses, 1 added, 1 removed, in fictional ACME policies. Ground truth: a gold evidence quote no longer appears verbatim in v2 (6 of the 68 answerable questions). MiniLM + cross-encoder rerank, Apple M5 16 GB, CPU:
+
+| evidence depth k | flagged | precision | recall |
+|---|---|---|---|
+| 1 | 8 | 0.857 | 1.000 |
+| 2 (default) | 11 | 0.600 | 1.000 |
+| 3 | 12 | 0.545 | 1.000 |
+
+Only 6 positives, so treat this as a sanity check, not a benchmark; details and caveats in [`results/impact_eval_2026-10-17.md`](results/impact_eval_2026-10-17.md). Unanswerable questions can be flagged when retrieval returns an unrelated changed clause (no abstention threshold yet).
+
+---
+
 ## 🎯 Overview
 
-PoliRAG is an **enterprise-grade Retrieval-Augmented Generation (RAG) system** designed for compliance, legal, and audit teams. It treats documents as first-class data assets with versioning, access control, evaluation, and full observability — built to ensure **no hallucinated answers** leave the system.
+PoliRAG is a Retrieval-Augmented Generation system for compliance, legal, and audit teams. It treats documents as first-class data assets with versioning, access control, retrieval evaluation, and observability, and requires answers to cite the clauses they rely on. (The original OpenAI-based pipeline in `src/app` is described below; the change-impact service in `src/impact` runs fully free and local.)
 
 ### ✨ Key Features
 
 | Feature | Description |
 |---------|-------------|
-| 🎯 **No Hallucinations** | Citation-required responses with confidence thresholds and a heuristic citation/confidence check (`HallucinationDetector`) |
+| 🎯 **Cited answers** | Citation-required responses with confidence thresholds and a heuristic citation/confidence check (`HallucinationDetector`) |
 | 🔍 **Hybrid Search** | BM25 (keyword) + FAISS (semantic) with cross-encoder reranking |
 | 🔒 **RBAC & Multi-Tenancy** | Hierarchical role-based access: Admin → Legal → Audit → Compliance → Read-Only |
 | 🕵️ **PII Protection** | Regex + spaCy NER for emails, SSNs, phone numbers, credit cards, names |
@@ -124,7 +166,7 @@ PoliRAG/
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Legacy pipeline prerequisites
 
 - Python 3.11+
 - OpenAI API Key

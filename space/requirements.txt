@@ -1,0 +1,8 @@
+gradio==5.50.0
+numpy>=1.26
+rank-bm25>=0.2.2
+sentence-transformers>=2.3
+httpx>=0.26
+pydantic>=2.5
+pydantic-settings>=2.1
+fastapi>=0.109
