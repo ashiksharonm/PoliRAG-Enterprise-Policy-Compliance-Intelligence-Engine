@@ -34,6 +34,10 @@ class Settings(BaseSettings):
     chunk_max_size: int = Field(default=600, alias="CHUNK_MAX_SIZE")
 
     # Vector Store Configuration
+    # /api/ingest only reads files under this directory (paths are resolved, so ../ and symlinks
+    # that leave it are rejected).
+    ingest_root: str = Field(default="./data/raw", alias="INGEST_ROOT")
+
     faiss_index_path: str = Field(default="./indexes/faiss", alias="FAISS_INDEX_PATH")
     faiss_metadata_path: str = Field(default="./indexes/metadata", alias="FAISS_METADATA_PATH")
     faiss_index_type: str = Field(default="IndexFlatIP", alias="FAISS_INDEX_TYPE")

@@ -27,6 +27,7 @@ from src.app.models import (
     CitationResponse,
 )
 from src.chunking.chunker import TablePreservingChunker
+from src.app.paths import resolve_ingest_path
 from src.config import get_settings
 from src.embeddings.service import EmbeddingService
 from src.eval.golden_dataset import GoldenDatasetManager
@@ -191,9 +192,14 @@ async def ingest_document(request: IngestRequest):
             detail=f"Rate limit exceeded. Retry after {retry_after:.1f} seconds"
         )
     
-    # Ingest document
-    file_path = Path(request.file_path)
-    if not file_path.exists():
+    # Ingest document: only files inside the configured ingest root, never arbitrary server paths.
+    file_path = resolve_ingest_path(request.file_path, get_settings().ingest_root)
+    if file_path is None:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="file_path must point inside the ingest directory"
+        )
+    if not file_path.is_file():
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"File not found: {request.file_path}"
