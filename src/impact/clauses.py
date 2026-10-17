@@ -13,8 +13,8 @@ from dataclasses import dataclass, field
 
 _SECTION = re.compile(r"^(\d+)\.\s+([A-Z][A-Za-z ,&/'()-]*)$")
 _CLAUSE = re.compile(r"^(\d+\.\d+[a-z]?)\s+(\S.*)$")
-_DOC_ID = re.compile(r"^Document ID:\s*(\S+)", re.M)
-_EFFECTIVE = re.compile(r"^Effective Date:\s*(.+)$", re.M)
+_DOC_ID = re.compile(r"^Document ID:[ \t]*(\S+)", re.M)
+_EFFECTIVE = re.compile(r"^Effective Date:[ \t]*(\S.*)$", re.M)
 
 
 def _norm(text: str) -> str:
