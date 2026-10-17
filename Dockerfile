@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 # Policy change impact service. CPU only. The legacy pipeline image lives in docker/Dockerfile.
-FROM python:3.11-slim AS build
+FROM python:3.14-slim AS build
 WORKDIR /w
 COPY requirements-impact.txt .
 RUN python -m venv /opt/venv \
@@ -13,7 +13,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder; \
 SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2'); \
 CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"; else mkdir -p /opt/hf; fi
 
-FROM python:3.11-slim
+FROM python:3.14-slim
 ENV PYTHONUNBUFFERED=1 HF_HOME=/opt/hf PATH=/opt/venv/bin:$PATH
 RUN useradd --create-home --uid 10001 app
 WORKDIR /app
