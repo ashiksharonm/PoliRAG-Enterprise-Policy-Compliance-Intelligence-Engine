@@ -2,9 +2,8 @@
 name = "polirag"
 version = "0.1.0"
 description = "Enterprise Policy & Compliance Intelligence Engine - Production RAG System"
-authors = ["Your Team"]
+authors = ["Ashik Sharon M <ashiksharon.24cs@licet.ac.in>"]
 readme = "README.md"
-python = "^3.11"
 
 [tool.poetry.dependencies]
 python = "^3.11"
