@@ -33,7 +33,7 @@ jobs:
       # Tests are mocked; no torch / sentence-transformers / spaCy models needed.
       - run: pip install pytest pytest-cov "numpy<2" faiss-cpu rank-bm25 pydantic pydantic-settings python-dotenv tiktoken fastapi httpx loguru PyPDF2 pdfplumber python-docx prometheus_client
       - run: PYTHONPATH=. pytest tests -q --cov=src/impact --cov-report=term --cov-report=xml --cov-fail-under=90
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: matrix.python-version == '3.12'
         with:
           name: coverage-xml
@@ -65,7 +65,7 @@ jobs:
           print(g)
           assert g["recall"] >= 0.8, g
           PY
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: impact-report
           path: impact.json
