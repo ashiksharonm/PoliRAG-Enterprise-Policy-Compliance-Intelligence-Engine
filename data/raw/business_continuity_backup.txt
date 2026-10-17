@@ -1,0 +1,75 @@
+ACME Corporation — Business Continuity & Backup Policy
+Document ID: POL-2025-004
+Effective Date: February 1, 2025
+Classification: Internal
+
+1. PURPOSE
+
+This policy ensures ACME can continue critical operations and recover data
+after a disruption such as a cyberattack, outage, or natural disaster.
+
+2. BACKUP REQUIREMENTS
+
+2.1 Backup Frequency
+Production databases must be backed up every 6 hours. File servers and
+collaboration platforms must be backed up daily.
+
+2.2 Backup Retention
+Backups are retained for 35 days. Month-end backups of financial systems are
+retained for 12 months.
+
+2.3 Offsite Storage
+At least one copy of every backup must be stored in a geographically
+separate region, at least 200 miles from the primary data center, and must be
+immutable for the length of its retention period.
+
+2.4 Backup Encryption
+All backups must be encrypted with AES-256. Backup encryption keys must be
+stored separately from the backup media.
+
+3. RECOVERY OBJECTIVES
+
+3.1 Tier A Systems
+Tier A systems (payments, customer portal, and authentication) must have a
+recovery time objective (RTO) of 4 hours and a recovery point objective (RPO)
+of 15 minutes.
+
+3.2 Tier B Systems
+Tier B systems (HR, internal reporting, and CRM) must have an RTO of 24 hours
+and an RPO of 6 hours.
+
+3.3 Tier C Systems
+Tier C systems (development and test environments) have an RTO of 5 business
+days and no defined RPO.
+
+4. TESTING
+
+4.1 Restore Testing
+Restores must be tested quarterly for Tier A systems and annually for Tier B
+systems. Test results are reported to the Risk Committee.
+
+4.2 Disaster Recovery Exercises
+A full disaster recovery exercise must be run once a year and must include
+failover of at least one Tier A system to the secondary region.
+
+5. CONTINUITY PLANNING
+
+5.1 Business Impact Analysis
+Each department head must update the department's business impact analysis
+every 12 months or after a major organizational change.
+
+5.2 Crisis Communication
+During a declared incident, the Crisis Management Team lead is the only
+person authorized to issue external statements. Employees are notified
+through the emergency notification system and the backup phone tree.
+
+5.3 Pandemic and Facility Loss
+If an office is unavailable, employees assigned to critical functions must
+switch to remote work within one business day under the Acceptable Use &
+Remote Work Policy.
+
+6. LOGGING
+
+6.1 Log Retention
+Security and audit logs must be retained online for 90 days and in archive
+storage for a total of 13 months.

@@ -1,0 +1,69 @@
+ACME Corporation — Third-Party & Vendor Risk Management Policy
+Document ID: POL-2025-003
+Effective Date: March 1, 2025
+Classification: Internal
+
+1. PURPOSE
+
+This policy sets the due diligence, contracting, and monitoring requirements
+for third parties that provide services to ACME or process ACME data.
+
+2. VENDOR TIERING
+
+2.1 Tier Definitions
+Tier 1 (Critical) vendors process Confidential or Restricted data or support
+a business-critical system. Tier 2 (Important) vendors process Internal data
+only. Tier 3 (Low) vendors have no access to ACME data or systems.
+
+2.2 Tier Assignment
+The business owner proposes a tier and Procurement confirms it. Information
+Security may raise a vendor's tier but may not lower it.
+
+3. DUE DILIGENCE
+
+3.1 Security Assessment
+Tier 1 vendors must complete the full security questionnaire and provide a
+current SOC 2 Type II report or ISO 27001 certificate before contract
+signature. Tier 2 vendors complete the short-form questionnaire.
+
+3.2 Financial Review
+Procurement must review the financial statements of every Tier 1 vendor
+before contract signature, and annually thereafter.
+
+3.3 Reassessment Cycle
+Tier 1 vendors are reassessed every 12 months. Tier 2 vendors are
+reassessed every 24 months. Tier 3 vendors are not reassessed.
+
+4. CONTRACT REQUIREMENTS
+
+4.1 Mandatory Clauses
+Every contract with a vendor that handles personal data must include a data
+processing agreement, a right-to-audit clause, and a requirement to notify
+ACME of a security incident within 48 hours of discovery.
+
+4.2 Subcontractors
+A vendor may not engage a subcontractor to process ACME data without prior
+written approval from ACME. Approved subcontractors are bound by the same
+obligations as the vendor.
+
+4.3 Contract Approval Thresholds
+Contracts up to $50,000 per year may be approved by a department head.
+Contracts above $50,000 and up to $250,000 per year require approval from
+the VP of Procurement. Contracts above $250,000 per year require approval
+from the Chief Financial Officer.
+
+5. OFFBOARDING
+
+5.1 Data Return and Destruction
+When a vendor relationship ends, the vendor must return or destroy all ACME
+data within 30 days and provide a written certificate of destruction.
+
+5.2 Access Removal
+Information Security must revoke all vendor accounts and network access on
+the termination date of the contract.
+
+6. RECORDS
+
+6.1 Vendor File Retention
+Vendor contracts, assessments, and certificates of destruction must be
+retained for seven (7) years after the contract ends.
