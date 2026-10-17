@@ -72,11 +72,29 @@ target-version = ["py311"]
 line-length = 100
 target-version = "py311"
 
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]  # ruff format owns line length; long docstrings/strings are tolerated
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+
 [tool.mypy]
 python_version = "3.11"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["rank_bm25.*", "sentence_transformers.*"]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["src/impact"]
+
+[tool.coverage.report]
+fail_under = 90
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

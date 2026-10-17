@@ -1,0 +1,13 @@
+services:
+  impact:
+    build:
+      context: .
+      args:
+        PRELOAD_MODELS: "1"
+    ports: ["8080:8080"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-sentence-transformers}
+    restart: unless-stopped
