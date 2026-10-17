@@ -1,0 +1,75 @@
+ACME Corporation — Privacy & Data Subject Rights Policy
+Document ID: POL-2025-005
+Effective Date: April 1, 2025
+Classification: Internal
+
+1. PURPOSE
+
+This policy describes how ACME handles requests from individuals exercising
+their rights over personal data under GDPR, CCPA, and similar laws.
+
+2. RECEIVING REQUESTS
+
+2.1 Request Channels
+Requests may be submitted through the privacy web form, by email to
+privacy@acme.example.com, or by phone. Any employee who receives a request
+must forward it to the Privacy Office within two (2) business days.
+
+2.2 Identity Verification
+The Privacy Office must verify the requester's identity before releasing or
+deleting any data. At least two identifying data points must match the record
+on file.
+
+3. RESPONSE DEADLINES
+
+3.1 Acknowledgement
+Every request must be acknowledged in writing within 5 business days.
+
+3.2 Response Time
+ACME must complete the request within 45 calendar days of receipt. For
+complex requests this may be extended by up to 60 additional days, and the
+requester must be told about the extension within the first 45 days.
+
+3.3 Fees
+No fee is charged for a request. A reasonable fee may be charged only for
+requests that are manifestly unfounded or excessive.
+
+4. REQUEST TYPES
+
+4.1 Access Requests
+The individual receives a copy of the personal data ACME holds, the purposes
+of processing, and the categories of recipients.
+
+4.2 Deletion Requests
+Personal data is deleted from production systems within 30 days of an
+approved request. Backup copies are overwritten at the end of the normal
+backup cycle. Data that ACME is legally required to keep is not deleted, and
+the requester is told why.
+
+4.3 Opt-Out of Sale or Sharing
+ACME does not sell personal data. Requests to opt out of sharing for
+advertising must be honored within 15 business days.
+
+5. BREACHES AFFECTING PERSONAL DATA
+
+5.1 Regulator Notification
+The Privacy Office, with Legal, must notify the relevant supervisory authority
+within 72 hours of becoming aware of a personal data breach, unless the
+breach is unlikely to result in a risk to individuals.
+
+5.2 Individual Notification
+Where a breach is likely to result in a high risk to individuals, they must
+be notified without undue delay.
+
+6. CHILDREN'S DATA
+
+6.1 Minimum Age
+ACME services are not directed at children under 16. If ACME learns it holds
+data about a child under 16 collected without parental consent, that data
+must be deleted within 14 days.
+
+7. RECORDS
+
+7.1 Request Log
+The Privacy Office keeps a log of all requests and responses for six (6)
+years.

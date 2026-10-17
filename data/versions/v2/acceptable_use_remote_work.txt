@@ -1,0 +1,74 @@
+ACME Corporation — Acceptable Use & Remote Work Policy
+Document ID: POL-2025-002
+Effective Date: January 1, 2025
+Classification: Internal
+
+1. PURPOSE
+
+This policy defines acceptable use of company devices, networks, and
+accounts, and the additional controls that apply when employees work
+outside an ACME office.
+
+2. DEVICES
+
+2.1 Company-Issued Laptops
+All laptops must use full-disk encryption and must lock automatically after
+10 minutes of inactivity. Lost or stolen devices must be reported to the IT
+Service Desk within 4 hours so the device can be remotely wiped.
+
+2.2 Personal Devices (BYOD)
+Personal smartphones may access company email only after enrolling in the
+mobile device management (MDM) program. Personal laptops and tablets are not
+permitted to connect to production systems or to store Confidential or
+Restricted data.
+
+2.3 Removable Media
+USB storage devices are blocked by default. Exceptions require written
+approval from Information Security and are limited to 30 days.
+
+3. NETWORK AND REMOTE ACCESS
+
+3.1 VPN Requirement
+Employees working remotely must connect through the corporate VPN before
+accessing any internal application. Split tunneling is prohibited.
+
+3.2 Public Wi-Fi
+Employees may use public Wi-Fi only when the corporate VPN is active.
+Company data must never be accessed over a public network without it.
+
+3.3 Remote Work Locations
+Employees may work remotely from any country on the approved-locations list
+for up to 30 consecutive days per calendar year. Work from a country that is
+not on the list requires prior approval from both Human Resources and
+Information Security.
+
+4. ACCEPTABLE USE
+
+4.1 Personal Use
+Limited personal use of company systems is permitted if it does not
+interfere with work, consume significant bandwidth, or violate any other
+policy. Streaming of non-work video during working hours is not permitted.
+
+4.2 Prohibited Activities
+Employees must not install unlicensed software, attempt to bypass security
+controls, mine cryptocurrency, or use company systems to access illegal
+content.
+
+4.3 Generative AI Tools
+Employees may use only company-approved generative AI tools for work. Source
+code, customer data, and any information classified Confidential or
+Restricted must not be entered into public AI chatbots.
+
+5. MONITORING
+
+5.1 Monitoring Notice
+ACME may monitor network traffic, email, and system activity on company
+resources. Employees have no expectation of privacy when using company
+systems, except where local law provides otherwise.
+
+6. SEPARATION
+
+6.1 Return of Assets
+On separation, all company devices and credentials must be returned or
+disabled by the employee's last working day. Accounts are deactivated within
+24 hours of the separation date.
