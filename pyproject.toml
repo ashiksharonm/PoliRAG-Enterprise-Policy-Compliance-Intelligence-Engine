@@ -30,7 +30,7 @@ numpy = "^1.26.0"
 
 # NLP & Text processing
 spacy = "^3.7.0"
-sentence-transformers = "^2.3.0"
+sentence-transformers = ">=2.3,<6.0"
 transformers = "^4.37.0"
 torch = "^2.1.0"
 
